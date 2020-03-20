@@ -1,0 +1,58 @@
+.col-md-3{
+	margin-bottom: 20px;
+}
+
+.aaaa {
+/* 	border-style: dashed; */
+	color: black;
+	max-width: 80%;
+	margin: 0 auto;
+}
+.row{
+	padding-bottom: 20px;
+}
+
+/* 내비게이션 영역 */
+.navbar-default {   
+	
+/* 	배경색상 */
+}
+.navbar-default .navbar-brand{
+	
+/* 	내비게이션 제목 생상 */
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	background-color: transparent;
+/* 	내비게이션 제목에 마우스 올렸을때  */
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+	color: fuchsia;
+}
+
+.navbar-default .navbar-nav > li > .active > a,
+.navbar-default .navbar-nav > li > .active > a:hover,
+.navbar-default .navbar-nav > li > .active > a:focus{
+	color: fuchsia;
+}
+
+.navbar-default .navbar-nav > open > .active > a,
+.navbar-default .navbar-nav > open > .active > a:hover,
+.navbar-default .navbar-nav > open > .active > a:focus{
+	color: fuchsia;
+	text-decoration: none;
+}
+
+@media (max-width:768px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a{
+		color:fuchsia;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus{
+		color:fuchsia;
+	}
+}
