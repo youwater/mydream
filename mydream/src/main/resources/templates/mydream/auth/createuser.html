@@ -7,26 +7,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
 <script src="/js/common.js"></script>
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/bootstrap/js/bootstrap.js"></script>
 <title>Insert title here</title>
 </head>
-<style>
-</style>
-<script type="text/javascript">
+  <script>
 	$(document).ready(function() {
-		$(".btn-primary").click(function() {
-			if(this.value == "a1") {
-				location.replace('/mywhatcouple');
-			}else if(this.value=="a3"){
-				location.replace('/bloodtype');
-			}else if(this.value=="a4"){
-				location.replace('/companyout');
-			}
+		$("#createUser").click(function(){
+			
+			var param = {
+				userid: $("#id").val(),
+				password:$("#passwd").val(),
+				password2:$("#passwd2").val(),
+				age:$("#age").val(),
+				gender:$("input:radio[name=gender]:checked").val()
+			};
+			ajaxCall("/createUser","POST",param,createCheck);
 		});
 	});
-</script>
+	
+	function createCheck(result){
+		if(result.resultYn == "Y" ){
+			alert(result.message);
+			location.href="/";
+		}else{
+			alert(result.message);
+		}
+	  }
+  </script>
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container">
@@ -54,26 +64,31 @@
 				</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a th:if="${session.sessionUser != null}" th:text="로그아웃" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
-							<a th:if="${session.sessionUser == null}" th:text="접속하기" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a th:if="${session.sessionUser == null}" href="/auth/login">로그인</a><li>
-								<li><a th:if="${session.sessionUser == null}" href="/auth/createuser">회원가입</a><li>
-								<li><a th:if="${session.sessionUser != null}" href="/logout">로그아웃</a><li>
-<!-- 								<li><a href="/auth/login">로그인</a></li> -->
-<!-- 								<li><a href="/auth/createuser">회원가입</a></li> -->
+								<li><a href="/auth/login">로그인</a></li>
+								<li><a href="/auth/createuser">회원가입</a></li>
 							</ul>
 						</li>
 					</ul>
 		</div>
 	</nav>
 	<div class="container">
+		<div id="jb-container">
+			<div id="jb-content">
+				<div class="login-card">
+					<h1>회원가입</h1>
+					<br>
+					  <input type="text" id="id"  placeholder="아이디">
+					  <input type="password" id="passwd"   placeholder="비밀번호">
+					  <input type="password" id="passwd2"  placeholder="비밀번호 확인">
+					  <input type="number" id="age"  placeholder="나이">
+					  <input type="radio"  name="gender"  placeholder="성별" value="M" checked/><span>남</span>
+					  <input type="radio"  name="gender" placeholder="성별" value="F"><span>여</span>
+					  <input type="submit" id="createUser" class="login login-submit" value="회원가입">
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
-
-
-
-
-
-

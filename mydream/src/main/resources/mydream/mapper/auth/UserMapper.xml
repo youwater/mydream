@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mydream.mapper.auth.UserMapper">
+	<select id="existsByUserId" resultType="boolean" parameterType="String">
+        SELECT CASE WHEN COUNT(u) > 0 THEN 'true' ELSE 'false' END FROM userinfo u WHERE u.userid = #{id}
+    </select>
+    
+    <insert id="insertUser" parameterType="mydream.vo.auth.UserVO">
+    	insert into userinfo values(#{userid},#{password},null,${age},#{gender},now());
+    </insert>
+    
+    <select id="loginUserId" resultType="mydream.vo.auth.UserVO" parameterType="String">
+        SELECT * FROM userinfo u WHERE u.userid = #{id}
+    </select>
+</mapper>
