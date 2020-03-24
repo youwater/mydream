@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/jquery.bxslider.min.css">
 <script src="/js/common.js"></script>
 <script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
 <script src="/bootstrap/js/bootstrap.js"></script>
 <title>Insert title here</title>
 </head>
@@ -16,21 +18,36 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".btn-primary").click(function() {
-			if(this.value == "a1") {
-				location.replace('/mywhatcouple');
-			}else if(this.value=="a3"){
-				location.replace('/bloodtype');
-			}else if(this.value=="a4"){
-				location.replace('/companyout');
-			}
-		});
+		$('.bxslider').bxSlider({
+			  minSlides: 1,
+			  maxSlides: 3,
+			  slideWidth: 360,
+			  slideMargin: 10
+			});
 	});
 </script>
 <body>
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
+		<ul class="bxslider">
+		<p>a</p>
+		<p>a</p>
+		<p>a</p>
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+<!-- 			<li><img src="image/a2.jpg" /></li> -->
+			
+		</ul>
 	</div>
+
 </body>
 </html>
 
