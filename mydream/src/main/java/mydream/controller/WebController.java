@@ -5,9 +5,11 @@ import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 import mydream.service.MydreamService;
+import mydream.service.song.SongService;
 
 @Slf4j
 @Controller
@@ -15,6 +17,9 @@ public class WebController {
 
 	   @Autowired
 	   MydreamService mydreamService;
+	   
+	   @Autowired
+	   SongService songService;
 	   
 	@RequestMapping("/")
 		public String index(Model model,Device device) throws Exception {
@@ -26,5 +31,13 @@ public class WebController {
 		}
 
 		return "index";
+	}
+	
+	@RequestMapping("/aa")
+	public ModelAndView  aa(ModelAndView m) throws Exception {
+		log.info("{}",songService.selectsonginfo());
+		 m.addObject("song",songService.selectsonginfo());
+		 m.setViewName("mydream/song/song");
+		return m;
 	}
 }

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
-<link rel="stylesheet" type="text/css" href="/css/jquery.bxslider.min.css">
+<link rel="stylesheet" type="text/css"	href="/css/jquery.bxslider.min.css">
 <script src="/js/common.js"></script>
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/jquery.bxslider.min.js"></script>
@@ -19,35 +19,40 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.bxslider').bxSlider({
-			  minSlides: 1,
-			  maxSlides: 3,
-			  slideWidth: 360,
+			  minSlides: 2,
+			  maxSlides: 4,
+			  slideWidth: 280,
 			  slideMargin: 10
 			});
 	});
 </script>
+<style>
+.col-md-4{
+margin-bottom: 30px;}
+</style>
 <body>
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
 		<ul class="bxslider">
-		<p>a</p>
-		<p>a</p>
-		<p>a</p>
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-<!-- 			<li><img src="image/a2.jpg" /></li> -->
-			
+			<li>slow motion</li>
+			<li>slow motion</li>
+			<li>slow motion</li>
+			<li>slow motion</li>
+			<li>slow motion</li>
 		</ul>
+<!-- 		<ul class="bxslider"> -->
+<!-- 			<li><img src="images/a1.jpg" class="img-responsive center-block" /></li> -->
+<!-- 			<li><img src="images/a1.jpg" class="img-responsive center-block" /></li> -->
+<!-- 			<li><img src="images/a1.jpg" class="img-responsive center-block" /></li> -->
+<!-- 			<li><img src="images/a1.jpg" class="img-responsive center-block" /></li> -->
+<!-- 		</ul> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
+<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
+<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
+<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
+<!-- 		</div> -->
 	</div>
-
 </body>
 </html>
 
