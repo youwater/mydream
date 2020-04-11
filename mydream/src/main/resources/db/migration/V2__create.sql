@@ -9,12 +9,23 @@ create table userInfo (
 
 CREATE SEQUENCE seq_no START 1;
 
+CREATE SEQUENCE seq_no2 START 1;
+
 create table songInfo(
 	num integer DEFAULT nextval('seq_no'),
 	songname varchar(50),
 	songartist  varchar(50),
     songlyrics varchar(3000),
-    englishword varchar(1000)[],
     regDt date,
     songreleasedate date
 );
+
+create table songword(
+	num integer DEFAULT nextval('seq_no2'),
+	songname varchar(50),
+	englishword  varchar(50),
+	koreaword  varchar(50),
+    regDt date
+);
+
+

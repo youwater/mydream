@@ -4,4 +4,8 @@
 	<select id="selectSongInfo" resultType="mydream.vo.song.SongVO">
         select * from songinfo;
     </select>
+    
+    <select id="selectSongWord" resultType="mydream.vo.song.SongVO">
+        select * from songword;
+    </select>
 </mapper>

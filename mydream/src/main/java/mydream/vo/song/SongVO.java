@@ -13,7 +13,8 @@ public class SongVO {
 	String songname;
 	String songartist;
 	String songlyrics;
-	String [] englishword;
 	Date regDt;
 	Date songreleasedate;
+	String koreaword;
+	String englishword;
 }

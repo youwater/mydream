@@ -13,11 +13,24 @@
 <script src="/bootstrap/js/bootstrap.js"></script>
 <title>Insert title here</title>
 </head>
+<style>
+pre{ 
+white-space:pre-line; 
+word-break:normal;
+word-wrap:normal;
+overflow:scroll;
+width:auto;
+height:400px;
+}
+</style>
 <body>
 <div th:replace="mydream/include/nav :: navFragment"></div>
+
 	<div class="container" th:each="song : ${song}">
+		<h2 th:text="${song.songname}"></h2>
 		<pre th:text="${song.songlyrics}">
 		</pre>
 	</div>
+	
 </body>
 </html>
