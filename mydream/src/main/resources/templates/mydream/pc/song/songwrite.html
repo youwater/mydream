@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>Insert title here</title>
+</head>
+<style>
+.aaa {
+	float: right; width: 55%;
+	overflow:auto;
+}
+.divcss {
+	width: 500px;
+	float: left; width: 40%
+}
+</style>
+<body>
+
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<div class="divcss">
+			<form name="form" id="form" role="form" method="post"
+				action="/song/songwrite">
+				<div>
+					<label for="title">노래 제목</label> <input type="text"
+						class="form-control" name="songname" id="songname"
+						placeholder="제목을 입력해 주세요">
+				</div>
+				</br>
+				<div>
+					<label for="reg_id">가수 이름</label> <input type="text"
+						class="form-control" name="songartist" id="songartist"
+						placeholder="이름을 입력해 주세요">
+				</div>
+				</br>
+				<div>
+					<label for="content">노래 가사</label>
+					<textarea class="form-control" rows="20" name="songlyrics"
+						id="songlyrics" placeholder="내용을 입력해 주세요"></textarea>
+				</div>
+				</br>
+				<div>
+				<button type="submit" class="btn btn-primary" id="btnSave">저장</button>
+				<button type="button" class="btn btn-primary" id="btnList">목록</button>
+			</div>
+			
+			
+		</div>
+		<div class="aaa">
+		<br>
+			<table class="table table-bordered">
+			<colgroup>
+				<col width="10%">
+				<col width="35%">
+				<col width="55%">
+			</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">First</th>
+						<th scope="col">Last</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>2</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>3</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>4</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>5</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>6</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>7</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>8</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>9</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+						<tr>
+						<td>10</td>
+						<td><input type="text" style="width:100%; border: 0;" name="englishwords"/></td>
+						<td><input type="text" style="width:100%; border: 0;" name="koreawords"/></td>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

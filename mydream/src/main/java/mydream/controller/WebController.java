@@ -23,31 +23,18 @@ public class WebController {
 	   SongService songService;
 	   
 	@RequestMapping("/")
-		public String index(Model model,Device device) throws Exception {
+		public ModelAndView index(ModelAndView m,Model model,Device device) throws Exception {
 		
 		if(device.isMobile()) {
 			System.out.println("모바일입니다");	
+			 m.setViewName("mydream/mobile/index");
 		}else {
 			System.out.println("pc입니다");
+			 m.setViewName("mydream/pc/index");
 		}
-
-		return "index";
-	}
-	
-	@RequestMapping("/aa")
-	public ModelAndView  aa(ModelAndView m ,Device device) throws Exception {
-		if(device.isMobile()) {
-			System.out.println("모바일입니다");	
-			 m.setViewName("mydream/mobile/song/song");
-		}else {
-			System.out.println("pc입니다");
-			 m.setViewName("mydream/pc/song/song");
-		}
-		
-		 m.addObject("song",songService.selectSongInfo());
-		 m.addObject("word",songService.selectSongWord());
-		 
-		
+		 m.addObject("song",songService.selectListSongInfo());
 		return m;
 	}
+	
+	
 }

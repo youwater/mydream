@@ -2,10 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mydream.mapper.song.SongMapper">
 	<select id="selectSongInfo" resultType="mydream.vo.song.SongVO">
-        select * from songinfo;
+        select * from songinfo where songname = #{songname};
     </select>
     
     <select id="selectSongWord" resultType="mydream.vo.song.SongVO">
-        select * from songword;
+        select * from songword where songname = #{songname};
     </select>
+    
+    <insert id="insertSong" parameterType="mydream.vo.song.SongVO">
+    	insert into songinfo (songname,songartist,songlyrics,regdt) values(#{songname},#{songartist},#{songlyrics},now());
+    </insert>
+      <insert id="insertSongword" parameterType="String">
+      insert into songword (songname,englishword,koreaword,regdt) values(#{songname},#{englishwords},#{koreawords},now());
+    </insert>
+     <select id="selectListSongInfo" resultType="mydream.vo.song.SongVO">
+        select * from songinfo;
+    </select>
+    
 </mapper>

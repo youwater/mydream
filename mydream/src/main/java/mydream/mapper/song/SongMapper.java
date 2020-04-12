@@ -9,7 +9,14 @@ import mydream.vo.song.SongVO;
 @Mapper
 public interface SongMapper {
 
-	SongVO selectSongInfo();
+	SongVO selectSongInfo(String songname);
 
-	List<SongVO> selectSongWord();
+	List<SongVO> selectSongWord(String songname);
+
+	void insertSong(SongVO songvo);
+
+	void insertSongword(String songname, String koreawords, String englishwords);
+
+	List<SongVO> selectListSongInfo();
+
 }
