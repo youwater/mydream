@@ -17,7 +17,7 @@ create table songInfo(
 	songartist  varchar(50),
     songlyrics varchar(3000),
     regDt date,
-    songreleasedate date
+    clickcount integer DEFAULT 0
 );
 
 create table songword(

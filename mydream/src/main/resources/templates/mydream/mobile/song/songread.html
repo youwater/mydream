@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
 <link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
 <script src="/js/common.js"></script>
@@ -20,17 +21,41 @@ word-break:normal;
 word-wrap:normal;
 overflow:scroll;
 width:auto;
-height:400px;
+height:300px;
 }
 </style>
 <body>
-<div th:replace="mydream/include/nav :: navFragment"></div>
-
-	<div class="container" th:each="song : ${song}">
-		<h2 th:text="${song.songname}"></h2>
-		<pre th:text="${song.songlyrics}">
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<div class="divcss" th:each="song : ${song}">
+			<h2 th:text="${song.songname}"></h2>
+			<pre th:text="${song.songlyrics}">
 		</pre>
+		</div>
+		<div class="aaa">
+		</br>
+			<table class="table table-sm">
+			<colgroup>
+				<col width="20%">
+				<col width="30%">
+				<col width="50%">
+			</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">영어단어</th>
+						<th scope="col">해석</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="word,index : ${word}">
+						<td th:text="${index.count}">1</td>
+						<td th:text="${word.englishword}" >Mark</td>
+						<td th:text="${word.koreaword}">Otto</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	
 </body>
 </html>

@@ -19,4 +19,6 @@ public interface SongMapper {
 
 	List<SongVO> selectListSongInfo();
 
+	void updateCountClick(int clickcount, String songname);
+
 }

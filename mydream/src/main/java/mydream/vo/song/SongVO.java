@@ -15,7 +15,7 @@ public class SongVO {
 	String songartist;
 	String songlyrics;
 	Date regDt;
-	Date songreleasedate;
+	int clickcount;
 	String koreaword;
 	String englishword;
 }

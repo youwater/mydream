@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+</head>
+<style>
+td {
+word-break:break-all
+}
+tr :hover{
+	cursor: pointer;
+}
+</style>
+<script>
+$(document).ready(function() {
+	$("tr").click(function(){
+		var a = $(this).attr("value");
+		submit(a);
+	});
+});
+function submit(a) {
+	 var songname = a;
+    var form = document.createElement("form");
+    form.setAttribute("charset", "UTF-8");
+    form.setAttribute("method", "GET");  //Post 방식
+    form.setAttribute("action", "/song/read"); //요청 보낼 주소
+    var hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "songname");
+    hiddenField.setAttribute("value", songname);
+    form.appendChild(hiddenField);
+    document.body.appendChild(form);
+    form.submit();
+ }
+
+</script>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<table class="table table-hover">
+			<colgroup>
+				<col width="15%">
+				<col width="25%">
+				<col width="25%">
+				<col width="25%">
+				<col width="15%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">번호</th>
+					<th scope="col">노래 제목</th>
+					<th scope="col">노래 가수</th>
+					<th scope="col">등록일</th>
+					<th scope="col">조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="song,index : ${song}" th:value="${song.songname}">
+					<td th:text="${index.count}">1</td>
+					<td th:text="${song.songname}">Mark</td>
+					<td th:text="${song.songartist}">Otto</td>
+					<td th:text="${#dates.format(song.regDt,'yyyy-MM-dd')}">Otto</td>
+					<td th:text="${song.clickcount}">Otto</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

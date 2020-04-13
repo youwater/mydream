@@ -24,13 +24,34 @@
 			  slideWidth: 280,
 			  slideMargin: 10,
 			});
+		
+		$(".song").click(function(){
+			var a = $(this).attr("value");
+			submit(a);
+		});
 	});
+	 function submit(a) {
+		 var songname = a;
+         var form = document.createElement("form");
+         form.setAttribute("charset", "UTF-8");
+         form.setAttribute("method", "GET");  //Post 방식
+         form.setAttribute("action", "/song/read"); //요청 보낼 주소
+         var hiddenField = document.createElement("input");
+         hiddenField.setAttribute("type", "hidden");
+         hiddenField.setAttribute("name", "songname");
+         hiddenField.setAttribute("value", songname);
+         form.appendChild(hiddenField);
+         document.body.appendChild(form);
+         form.submit();
+      }
 </script>
+
 <style>
 .song{
 	height: 80px;
 	font-size: 24px;
 	text-align: center;
+	border: 2px;
 }
 .col-md-4{
 margin-bottom: 30px;}
@@ -38,19 +59,9 @@ margin-bottom: 30px;}
 <body>
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
-		<ul class="bxslider">
-			<li class="song">slow motion<br>song</li>
-			<li class="song">slow motion</li>
-			<li class="song">slow motion</li>
-			<li class="song">slow motion</li>
-			<li class="song">slow motion</li>
+		<ul class="bxslider" >
+			<li class="song" th:each="song : ${song}" th:text="${song.songname}" th:value="${song.songname}"></li>
 		</ul>
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
-<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
-<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
-<!-- 			<div class="col-md-2"><a><h2>slow motion</h2></a></div> -->
-<!-- 		</div> -->
 	</div>
 </body>
 </html>

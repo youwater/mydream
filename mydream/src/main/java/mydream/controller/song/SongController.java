@@ -37,7 +37,7 @@ public class SongController  {
 		}
 		 m.addObject("song",songService.selectSongInfo(vo.getSongname()));
 		 m.addObject("word",songService.selectSongWord(vo.getSongname()));
-		 
+		
 		return m;
 	}
 	
@@ -56,8 +56,6 @@ public class SongController  {
 	@Transactional
 	@RequestMapping("/song/songwrite")
 	public ModelAndView  songwrite(ModelAndView m ,Device device ,SongVO songvo ,HttpServletRequest request) throws Exception {
-		
-		
 		try {
 			songService.insertSong(songvo);
 			songService.insertSongword(request,songvo.getSongname());	
@@ -72,6 +70,21 @@ public class SongController  {
 			System.out.println("pc입니다");
 			 m.setViewName("mydream/pc/song/songwrite");
 		}
+		return m;
+	}
+	
+	@RequestMapping("/song/songlist")
+	public ModelAndView  songlist(ModelAndView m ,Device device ,SongVO songvo ,HttpServletRequest request) throws Exception {
+		
+		if(device.isMobile()) {
+			System.out.println("모바일입니다");	
+			 m.setViewName("mydream/mobile/song/songlist");
+		}else {
+			System.out.println("pc입니다");
+			 m.setViewName("mydream/pc/song/songlist");
+		}
+		
+		 m.addObject("song",songService.selectListSongInfo());
 		return m;
 	}
 }

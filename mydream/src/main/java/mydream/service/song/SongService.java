@@ -23,6 +23,10 @@ public class SongService {
 		SongVO songinfo =  songMapper.selectSongInfo(songname);
 		songinfo.setSonglyrics(songinfo.getSonglyrics().replace("+", "'"));
 		songinfo.setSongname(songinfo.getSongname().replace("+", "'"));
+		
+		//팝송으로 공부하기 조회수 업데이트
+		songMapper.updateCountClick(songinfo.getClickcount(),songinfo.getSongname());
+		
 		return songinfo;
 	}
 
@@ -64,5 +68,4 @@ public class SongService {
 		List<SongVO> songword =  songMapper.selectListSongInfo();
 		return songword;
 	}
-	
 }

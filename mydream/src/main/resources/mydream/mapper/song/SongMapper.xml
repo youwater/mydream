@@ -12,11 +12,17 @@
     <insert id="insertSong" parameterType="mydream.vo.song.SongVO">
     	insert into songinfo (songname,songartist,songlyrics,regdt) values(#{songname},#{songartist},#{songlyrics},now());
     </insert>
-      <insert id="insertSongword" parameterType="String">
+    
+     <insert id="insertSongword" parameterType="String">
       insert into songword (songname,englishword,koreaword,regdt) values(#{songname},#{englishwords},#{koreawords},now());
     </insert>
+    
      <select id="selectListSongInfo" resultType="mydream.vo.song.SongVO">
         select * from songinfo;
     </select>
+    
+     <update id="updateCountClick" parameterType="mydream.vo.song.SongVO">
+      update songinfo set clickcount=${clickcount}+1 where songname = #{songname};
+    </update>
     
 </mapper>
