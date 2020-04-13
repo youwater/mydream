@@ -27,7 +27,6 @@ public class SongController  {
 	@RequestMapping("/song/read")
 	@ResponseBody
 	public ModelAndView read(ModelAndView m ,Device device,SongVO vo) throws Exception {
-		System.out.println(vo.getSongname());
 		if(device.isMobile()) {
 			System.out.println("모바일입니다");	
 			 m.setViewName("mydream/mobile/song/songread");

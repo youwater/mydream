@@ -59,9 +59,34 @@ margin-bottom: 30px;}
 <body>
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
+		<h2>팝송으로 공부하기</h2>
+		<br>
 		<ul class="bxslider" >
 			<li class="song" th:each="song : ${song}" th:text="${song.songname}" th:value="${song.songname}"></li>
 		</ul>
+			<h2>단어 공부하기</h2>
+			<br>
+			<table class="table">
+			<colgroup>
+				<col width="20%">
+				<col width="30%">
+				<col width="50%">
+			</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">영어단어</th>
+						<th scope="col">해석</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="word,index : ${word}">
+						<th th:text="${index.count}">1</th>
+						<td th:text="${word.englishword}" >Mark</td>
+						<td th:text="${word.koreaword}">Otto</td>
+					</tr>
+				</tbody>
+			</table>
 	</div>
 </body>
 </html>

@@ -25,4 +25,8 @@
       update songinfo set clickcount=${clickcount}+1 where songname = #{songname};
     </update>
     
+      <select id="selectListSongWord" resultType="mydream.vo.song.SongVO">
+        select * from songword ORDER BY RANDOM() LIMIT 10
+    </select>
+    
 </mapper>

@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
 import mydream.mapper.song.SongMapper;
@@ -68,4 +67,11 @@ public class SongService {
 		List<SongVO> songword =  songMapper.selectListSongInfo();
 		return songword;
 	}
+
+
+	public Object selectListSongWord() {
+		List<SongVO> songword =  songMapper.selectListSongWord();
+		return songword;
+	}
+		
 }

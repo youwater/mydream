@@ -33,6 +33,7 @@ public class WebController {
 			 m.setViewName("mydream/pc/index");
 		}
 		 m.addObject("song",songService.selectListSongInfo());
+		 m.addObject("word",songService.selectListSongWord());
 		return m;
 	}
 	
