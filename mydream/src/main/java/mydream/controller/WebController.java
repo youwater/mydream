@@ -9,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 import mydream.service.MydreamService;
+import mydream.service.saying.SayingService;
 import mydream.service.song.SongService;
-import mydream.vo.song.SongVO;
 
 @Slf4j
 @Controller
@@ -21,6 +21,10 @@ public class WebController {
 	   
 	   @Autowired
 	   SongService songService;
+	   
+	   @Autowired
+	   SayingService sayingService;
+	   
 	   
 	@RequestMapping("/")
 		public ModelAndView index(ModelAndView m,Model model,Device device) throws Exception {
@@ -34,6 +38,7 @@ public class WebController {
 		}
 		 m.addObject("song",songService.selectListSongInfo());
 		 m.addObject("word",songService.selectListSongWord());
+		 m.addObject("saying",sayingService.selectListSayinfo());
 		return m;
 	}
 	

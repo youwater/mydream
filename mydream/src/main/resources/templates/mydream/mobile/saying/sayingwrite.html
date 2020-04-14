@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>Insert title here</title>
+</head>
+<style>
+</style>
+<body>
+
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<div class="divcss">
+			<form name="form" id="form" role="form" method="post" action="/saying/sayingwrite">
+				<div>
+					<label for="title">영어 이름</label> <input type="text" class="form-control" name="engname" id="engname" placeholder="제목을 입력해 주세요">
+				</div>
+				<br>
+					<div>
+					<label for="title">직업</label> <input type="text" class="form-control" name="job" id="job" placeholder="제목을 입력해 주세요">
+				</div>
+				<br>
+				<div>
+					<label for="content">영어 명언 내용</label>
+					<textarea class="form-control" rows="6" name="engcontent" id="engcontent" placeholder="내용을 입력해 주세요"></textarea>
+				</div>
+				</br>
+				<div>
+					<label for="content">한글 명언 내용</label>
+					<textarea class="form-control" rows="6" name="korcontent" id="korcontent" placeholder="내용을 입력해 주세요"></textarea>
+				</div>
+				</br>
+				<div>
+				<button type="submit" class="btn btn-primary" id="btnSave">저장</button>
+				<button type="button" class="btn btn-primary" id="btnList">목록</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

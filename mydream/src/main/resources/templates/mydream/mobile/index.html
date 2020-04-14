@@ -49,9 +49,14 @@
 <style>
 .song{
 	height: 80px;
-	font-size: 24px;
+	font-size: 12px;
 	text-align: center;
-	border: 2px;
+	border-right: thick double #32a1ce;
+}
+.saying{
+	height: 180px;
+	font-size: 12px;
+	border-right: thick double #32a1ce;
 }
 .col-md-4{
 margin-bottom: 30px;
@@ -71,8 +76,12 @@ margin-bottom: 30px;
 	</div>
 		<h2>팝송으로 공부하기</h2>
 		<br>
-		<ul class="bxslider" >
-			<li class="song" th:each="song : ${song}" th:text="${song.songname}" th:value="${song.songname}"></li>
+		<ul class="bxslider">
+			<div class="song" th:each="song : ${song}" th:value="${song.songname}" >
+				<div th:text="${song.songname}"></div>
+				<br>
+				<div th:text="${song.songartist}" th:value="${song.songname}"></div>
+			</div>
 		</ul>
 			<h2>단어 공부하기</h2>
 			<br>
@@ -97,6 +106,20 @@ margin-bottom: 30px;
 					</tr>
 				</tbody>
 			</table>
+				<div>
+			<h2>명언으로 영어공부</h2>
+			<br>
+			<ul class="bxslider">
+				<div class="saying" th:each="saying,index : ${saying}">
+					<div th:text="${saying.engcontent}">You must start with small things to achieve the greatthing.</div>
+					<br>
+					<div th:text="${saying.korcontent}">작은 일을 시작해야 위대한 일도 생긴다.</div>
+					<br>
+					<div th:text="${saying.engname}">Benjamin Franklin</div>
+					<div th:text="'('+${saying.job}+')'">Benjamin Franklin</div>
+				</div>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
