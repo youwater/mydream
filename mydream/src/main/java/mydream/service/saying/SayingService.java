@@ -16,11 +16,19 @@ public class SayingService {
 	SayingMapper sayingMapper;
 	
 	public void sayingwrite(SayingVO sayingVO) {
+		sayingVO.setEngcontent(sayingVO.getEngcontent().replace("'", "+"));
+		sayingVO.setEngname(sayingVO.getEngname().replace("'", "+"));
 		sayingMapper.sayingwrite(sayingVO);
 	}
 
 	public Object selectListSayinfo() {
+		
 		List<SayingVO> sayingVO =  sayingMapper.selectListSayinfo();
+		
+		for(int i=0;i<sayingVO.size();i++) {
+			sayingVO.get(i).setEngcontent(sayingVO.get(i).getEngcontent().replace("+", "'"));
+			sayingVO.get(i).setEngcontent(sayingVO.get(i).getEngcontent().replace("+", "'"));
+		}
 		return sayingVO;
 	}
 

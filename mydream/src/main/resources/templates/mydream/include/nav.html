@@ -32,14 +32,19 @@
 				</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
+							<a th:if="${session.sessionUser == 'aswan'}"  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시물 작성<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a th:if="${session.sessionUser == 'aswan'}" href="/song/write">팝송 작성</a><li>
+								<li><a th:if="${session.sessionUser == 'aswan'}" href="/saying/write">명언 작성</a><li>
+							</ul>
+						</li>
+						<li class="dropdown">
 							<a th:if="${session.sessionUser != null}" th:text="로그아웃" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
 							<a th:if="${session.sessionUser == null}" th:text="접속하기" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a th:if="${session.sessionUser == null}" href="/auth/login">로그인</a><li>
 								<li><a th:if="${session.sessionUser == null}" href="/auth/createuser">회원가입</a><li>
 								<li><a th:if="${session.sessionUser != null}" href="/logout">로그아웃</a><li>
-<!-- 								<li><a href="/auth/login">로그인</a></li> -->
-<!-- 								<li><a href="/auth/createuser">회원가입</a></li> -->
 							</ul>
 						</li>
 					</ul>

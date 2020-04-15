@@ -19,18 +19,22 @@ public class SongService {
 	SongMapper songMapper;
 
 	public Object selectSongInfo(String songname) {
+		
+		songname = songname.replace("'", "+");
 		SongVO songinfo =  songMapper.selectSongInfo(songname);
-		songinfo.setSonglyrics(songinfo.getSonglyrics().replace("+", "'"));
-		songinfo.setSongname(songinfo.getSongname().replace("+", "'"));
 		
 		//팝송으로 공부하기 조회수 업데이트
 		songMapper.updateCountClick(songinfo.getClickcount(),songinfo.getSongname());
+		//
+		songinfo.setSonglyrics(songinfo.getSonglyrics().replace("+", "'"));
+		songinfo.setSongname(songinfo.getSongname().replace("+", "'"));
 		
 		return songinfo;
 	}
 
 	
 	public Object selectSongWord(String songname) {
+		songname = songname.replace("'", "+");
 		List<SongVO> songword =  songMapper.selectSongWord(songname);
 		return songword;
 	}
@@ -65,6 +69,11 @@ public class SongService {
 
 	public Object selectListSongInfo() {
 		List<SongVO> songword =  songMapper.selectListSongInfo();
+		for(int i=0;i<songword.size();i++) {
+			songword.get(i).setSongname(songword.get(i).getSongname().replace("+", "'"));
+			songword.get(i).setSongartist(songword.get(i).getSongartist().replace("+", "'"));
+		}
+		
 		return songword;
 	}
 
