@@ -42,5 +42,32 @@ public class WebController {
 		return m;
 	}
 	
+	@RequestMapping("/basic/basic8")
+	public ModelAndView basic8(ModelAndView m,Model model,Device device) throws Exception {
+	
+	if(device.isMobile()) {
+		System.out.println("모바일입니다");	
+		 m.setViewName("mydream/mobile/basic/basic8");
+	}else {
+		System.out.println("pc입니다");
+		 m.setViewName("mydream/pc/basic/basic8");
+	}
+	
+	return m;
+	}
+	
+	@RequestMapping("/basic/basic5")
+	public ModelAndView basic5(ModelAndView m,Model model,Device device) throws Exception {
+	
+	if(device.isMobile()) {
+		System.out.println("모바일입니다");	
+		 m.setViewName("mydream/mobile/basic/basic5");
+	}else {
+		System.out.println("pc입니다");
+		 m.setViewName("mydream/pc/basic/basic5");
+	}
+	
+	return m;
+	}
 	
 }

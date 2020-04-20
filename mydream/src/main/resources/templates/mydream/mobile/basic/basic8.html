@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css"
+	href="/css/jquery.bxslider.min.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>Insert title here</title>
+</head>
+<style>
+.jumbotron{
+	background-image: url('/images/baisc.jpg');
+	background-size: cover;
+	color: white;
+}
+</style>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+	<div class="jumbotron">
+		<h6>영어 실력을 향상시키고 싶다면</h6>
+		<h6>영어 문장을 매일 읽는 것을 권한다</h6>
+		<h6>무엇을 읽는지는 자유다.</h6>
+	</div>
+		<table class="table table-bordered">
+			<colgroup>
+				<col width="20%">
+				<col width="50%">
+				<col width="30%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">명사</th>
+					<td>사람, 사물, 동물의 이름을 나타내거나, ‘~(하)기, ~(하는)것, ~(할)지’로 해석되는 어떤 행
+						동이나 추상적인 개념을 나타낸다. 문장에서 주어, 목적어, 보어 등으로 쓰인다.</td>
+					<td>ex: book, desk, love, running, happiness</td>
+				</tr>
+				<tr>
+					<th scope="col">동사</th>
+					<td>사물의 동작이나 상태를 나타내며, 문장에서 서술어(술어동사)로 쓰인다. 우리말의 ‘~다’로 해석된다</td>
+					<td>ex: say, run, play, study, know 등</td>
+				</tr>
+				<tr>
+					<th scope="col">형용사</th>
+					<td>사람과 사물의 성질·상태·수량 등을 나타내며, 명사(구)를 수식하거나 보어로 사용된다.</td>
+					<td>ex: tall, old, beautiful, many, pretty 등</td>
+				</tr>
+				<tr>
+					<th scope="col">부사</th>
+					<td>시간, 장소, 이유, 방법 등을 나타내며, 문장 안에서 형용사(구), 부사(구), 동사(구), 문장 전
+						체 등을 수식한다.</td>
+					<td>ex: well, so, kindly, largely 등</td>
+				</tr>
+				<tr>
+					<th scope="col">전치사</th>
+					<td>명사 또는 대명사 앞에 놓여서 다른 낱말과의 관계(장소, 방향, 위치, 때 등)를 나타낸다. 전치사 와
+						명사 혹은 대명사의 덩어리를 전치사구라고 한다. 전치사구는 문장에서 형용사구 또는 부사 구의 역할을 한다.</td>
+					<td>ex: in, at, under, of, on</td>
+				</tr>
+				<tr>
+					<th scope="col" rowspan="3">접속사</th>
+					<td colspan="2">문장 내의 연결 장치로 절과 절을 연결한다.</td>
+				</tr>
+				<tr>
+					<td colspan="1">동위접속사 : 단어와 단어, 구와 구, 절과 절을 대등하게 연결한다</td>
+					<td>ex : and, but, or, nor, so, for, yet</td>
+				</tr>
+				<tr>
+					<td colspan="1">종속접속사 : 종속절을 이끌면서 종속절을 주절에 연결시켜 준다. *종속절의
+						종류：명사절, 형용사절, 부사절</td>
+					<td>ex : that, what, whether, because, if, although 등</td>
+				</tr>
+				<tr>
+					<th scope="col">대명사</th>
+					<td>한 번 나온 명사를 대신하여 사용한다. 명사와 같이 주어, 목적어, 보어로 쓰인다.</td>
+					<td>ex: I, he, she, they, them 등</td>
+				</tr>
+				<tr>
+					<th scope="col">감탄사</th>
+					<td>기쁨, 놀람, 슬픔 등의 여러 가지 감정을 나타내는 말이다.</td>
+					<td>ex: oh, ole, gee, bravo 등</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		
+<!-- 		<br><br><br> -->
+<!-- 		<table class="table table-bordered"> -->
+<!-- 			<colgroup> -->
+<!-- 				<col width="10%"> -->
+<!-- 				<col width="40%"> -->
+<!-- 				<col width="50%"> -->
+<!-- 			</colgroup> -->
+<!-- 			<thead> -->
+<!-- 				<tr> -->
+<!-- 					<th>1</th> -->
+<!-- 					<td>I bought(동사) several books yesterday(명사) with(전치사) my friends.</td> -->
+<!-- 					<td>나는 어제 친구들이랑 책을 몇 권 샀다</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>2</th> -->
+<!-- 					<td>I like apples and(접속사) my younger brother likes kiwis.(명사)</td> -->
+<!-- 					<td>나는 사과를 좋아하고, 나의 남동생은 키위를 좋아한다</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>3</th> -->
+<!-- 					<td>I play(동사) basketball in(전치사) the gym with my friends every Sunday.</td> -->
+<!-- 					<td>나는 일요일마다 친구들과 체육관에서 농구를 한다</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>4</th> -->
+<!-- 					<td>The number of students in this school doubled(동사) last year.(부사)</td> -->
+<!-- 					<td>이 학교의 학생 수는 작년의 두 배가 되었다. </td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>5</th> -->
+<!-- 					<td>She raised the current(형용사) level of the class three times.(부사)</td> -->
+<!-- 					<td>그녀는 수업의 현재 레벨을 세 배로 올렸다. </td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>6</th> -->
+<!-- 					<td>Many(형용사) people saw(동사) the car accident on(전치사) the spot.</td> -->
+<!-- 					<td>많은 사람들은 현장에서 차 사고를 목격했다. </td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>7</th> -->
+<!-- 					<td>I got up early(부사) in the morning.</td> -->
+<!-- 					<td>나는 아침 일찍 일어났다</td> -->
+<!-- 				</tr> -->
+<!-- 					<tr> -->
+<!-- 					<th>8</th> -->
+<!-- 					<td>Do you(대명사) have a good(형용사) plan in the upcoming(형용사) holidays?</td> -->
+<!-- 					<td>다가오는 휴가 때 좋은 계획이 있니?</td> -->
+<!-- 				</tr> -->
+<!-- 					<tr> -->
+<!-- 					<th>9</th> -->
+<!-- 					<td>Thank(동사) you so(부사) much!(부사)</td> -->
+<!-- 					<td>아주 고마워</td> -->
+<!-- 				</tr> -->
+<!-- 					<tr> -->
+<!-- 					<th>10</th> -->
+<!-- 					<td>Probably(부사) he will not(부사) come back again.(부사)</td> -->
+<!-- 					<td>아마도 그는 다시 돌아오지 않을 것이다.</td> -->
+<!-- 				</tr> -->
+<!-- 			</thead> -->
+<!-- 		</table> -->
+	</div>
+</body>
+</html>
