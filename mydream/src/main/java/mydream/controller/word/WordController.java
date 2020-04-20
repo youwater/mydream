@@ -20,7 +20,7 @@ public class WordController {
 	@Autowired
 	WordService wordService;
 
-	@RequestMapping("/word/toeic")
+	@RequestMapping("/word/word")
 	public ModelAndView toeic(ModelAndView m, Model model, Device device, PageVO page) throws Exception {
 
 		if (page.getPageIndex() == 0) {
@@ -28,13 +28,13 @@ public class WordController {
 		}
 		if (device.isMobile()) {
 			System.out.println("모바일입니다");
-			m.setViewName("mydream/mobile/word/toeic");
+			m.setViewName("mydream/mobile/word/word");
 		} else {
 			System.out.println("pc입니다");
-			m.setViewName("mydream/pc/word/toeic");
+			m.setViewName("mydream/pc/word/word");
 		}
 
-		int count = wordService.selectCountWordToeic();
+		int count = wordService.selectCountWord(page);
 		int start = 0;
 
 		if (page.getPageIndex() / 5 == 0) {
@@ -46,44 +46,11 @@ public class WordController {
 		}
 		
 		int end = (start + 4 <= count / page.getPageSize()) ? start + 4 : count / page.getPageSize();
-		m.addObject("word", wordService.selectListWordToeic(page));
+		m.addObject("word", wordService.selectListWord(page));
 		m.addObject("start", start);
 		m.addObject("end", end);
 		m.addObject("count", count / page.getPageSize());
-
-		return m;
-	}
-	
-	@RequestMapping("/word/tople")
-	public ModelAndView tople(ModelAndView m, Model model, Device device, PageVO page) throws Exception {
-
-		if (page.getPageIndex() == 0) {
-			page.setPageIndex(1);
-		}
-		if (device.isMobile()) {
-			System.out.println("모바일입니다");
-			m.setViewName("mydream/mobile/word/tople");
-		} else {
-			System.out.println("pc입니다");
-			m.setViewName("mydream/pc/word/tople");
-		}
-
-		int count = wordService.selectCountWordTople();
-		int start = 0;
-
-		if (page.getPageIndex() / 5 == 0) {
-			start = page.getPageIndex() / 5 * 5 + 1;
-		} else if (page.getPageIndex() % 5 == 0) {
-			start = (page.getPageIndex() - 1) / 5 * 5 + 1;
-		} else {
-			start = page.getPageIndex() / 5 * 5 + 1;
-		}
-		
-		int end = (start + 4 <= count / page.getPageSize()) ? start + 4 : count / page.getPageSize();
-		m.addObject("word", wordService.selectListWordTople(page));
-		m.addObject("start", start);
-		m.addObject("end", end);
-		m.addObject("count", count / page.getPageSize());
+		m.addObject("type", page.getType());
 
 		return m;
 	}

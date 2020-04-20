@@ -9,12 +9,9 @@ import mydream.vo.page.PageVO;
 @Mapper
 public interface WordMapper {
 
-	List selectListWordToeic(PageVO page);
 
-	int selectCountWordToeic();
+	List selectListWord(PageVO page);
 
-	int selectCountWordTople();
-
-	List selectListWordTople(PageVO page);
+	int selectCountWord(PageVO page);
 
 }

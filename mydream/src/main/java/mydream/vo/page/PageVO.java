@@ -12,5 +12,6 @@ public class PageVO {
 	private int pageIndex;
 	/** 페이지사이즈 */
 	private int pageSize = 30; // 한페이지에 나오는 게시물 개수
+	String type;
 
 }

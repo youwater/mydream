@@ -14,20 +14,11 @@ public class WordService {
 	@Autowired
 	WordMapper wordMapper;
 	
-	public List selectListWordToeic(PageVO page) {
-		return wordMapper.selectListWordToeic(page);
+	public List selectListWord(PageVO page) {
+		return wordMapper.selectListWord(page);
 	}
 
-	public int selectCountWordToeic() {
-		return wordMapper.selectCountWordToeic();
+	public int selectCountWord(PageVO page) {
+		return wordMapper.selectCountWord(page);
 	}
-
-	public int selectCountWordTople() {
-		return wordMapper.selectCountWordTople();
-	}
-
-	public List selectListWordTople(PageVO page) {
-		return wordMapper.selectListWordTople(page);
-	}
-
 }

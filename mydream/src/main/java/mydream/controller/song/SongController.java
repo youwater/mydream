@@ -44,10 +44,10 @@ public class SongController  {
 	public ModelAndView write(ModelAndView m ,Device device) throws Exception {
 		if(device.isMobile()) {
 			System.out.println("모바일입니다");	
-			 m.setViewName("redirect:/");
+			 m.setViewName("mydream/mobile/song/songwrite");
 		}else {
 			System.out.println("pc입니다");
-			 m.setViewName("redirect:/");
+			 m.setViewName("mydream/pc/song/songwrite");
 		}
 		return m;
 	}
@@ -64,10 +64,12 @@ public class SongController  {
 		
 		if(device.isMobile()) {
 			System.out.println("모바일입니다");	
-			 m.setViewName("mydream/mobile/song/songwrite");
+			m.setViewName("redirect:/");
+			
 		}else {
 			System.out.println("pc입니다");
-			 m.setViewName("mydream/pc/song/songwrite");
+			m.setViewName("redirect:/");
+			
 		}
 		return m;
 	}

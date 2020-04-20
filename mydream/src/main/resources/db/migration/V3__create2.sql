@@ -10,12 +10,9 @@ create table sayinginfo(
     clickcount integer DEFAULT 0
 );
 
-CREATE SEQUENCE seq_no4 START 1;
-
 create table engword(
-	num integer DEFAULT nextval('seq_no4'),
+	num integer,
 	wordtype varchar(30),
 	englishword  varchar(50),
-	koreaword  varchar(100),
-    regDt date
+	koreaword  varchar(100)
 );

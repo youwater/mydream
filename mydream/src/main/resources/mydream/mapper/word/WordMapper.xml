@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mydream.mapper.word.WordMapper">
-	<select id="selectListWordToeic" resultType="mydream.vo.word.WordVO" parameterType="mydream.vo.page.PageVO">
-        select * from engword  where wordtype='toeic' order by num asc  offset (#{pageIndex}-1)* #{pageSize} limit #{pageSize};
+	<select id="selectListWord" resultType="mydream.vo.word.WordVO" parameterType="mydream.vo.page.PageVO">
+        select * from engword  where wordtype=#{type} order by num asc  offset (#{pageIndex}-1)* #{pageSize} limit #{pageSize};
     </select>
     
-    <select id="selectCountWordToeic" resultType="integer">
-        select count(*) from engword where wordtype='toeic';
-    </select>
-    
-    <select id="selectListWordTople" resultType="mydream.vo.word.WordVO" parameterType="mydream.vo.page.PageVO">
-        select * from engword  where wordtype='tople' order by num asc  offset (#{pageIndex}-1)* #{pageSize} limit #{pageSize};
-    </select>
-    
-    <select id="selectCountWordTople" resultType="integer">
-        select count(*) from engword where wordtype='tople';
+    <select id="selectCountWord" resultType="integer">
+        select count(*) from engword where wordtype=#{type};
     </select>
 </mapper>

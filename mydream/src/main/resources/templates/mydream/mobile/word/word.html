@@ -29,15 +29,15 @@ tr :hover{
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
 		<div class="jumbotron">
-			<h2>영어 실력을 향상시키고 싶다면</h2>
-			<h2>영어 문장을 매일 읽는 것을 권한다</h2>
-			<h2>무엇을 읽는지는 자유다.</h2>
+			<h6>영어 실력을 향상시키고 싶다면</h6>
+			<h6>영어 문장을 매일 읽는 것을 권한다</h6>
+			<h6>무엇을 읽는지는 자유다.</h6>
 		</div>
 		<table class="table table-hover">
 			<colgroup>
-				<col width="15%">
-				<col width="25%">
-				<col width="25%">
+				<col width="20%">
+				<col width="30%">
+				<col width="50%">
 			</colgroup>
 			<thead>
 				<tr>
@@ -48,7 +48,7 @@ tr :hover{
 			</thead>
 			<tbody>
 				<tr th:each="word,index : ${word}">
-					<td th:text="${word.num}">1</td>
+					<td th:text="${index.count}">1</td>
 					<td th:text="${word.englishword}">Mark</td>
 					<td th:text="${word.koreaword}">Otto</td>
 				</tr>
@@ -59,20 +59,20 @@ tr :hover{
                   end=${end}">
 			<nav style="text-align: center;">
 				<ul class="pagination">
-					<li class=""><a href="/word/toeic?pageIndex=1" aria-label="First"> <span
+					<li class=""><a th:href="@{/word/word(pageIndex=1,type=${type})}" aria-label="First"> <span
 							aria-hidden="true">First</span>
 					</a></li>
-					<li class=""><a th:href="@{/word/toeic(pageIndex=${start-1})}" aria-label="Previous"> <span
+					<li class=""><a th:href="@{/word/word(pageIndex=${start-1},type=${type})}" aria-label="Previous"> <span
 							aria-hidden="true">&lt;</span>
 					</a></li>
 					<li th:each="page: ${#numbers.sequence(start, end)}"><a
-						th:href="@{/word/toeic(pageIndex=${page})}" th:text="${page}"></a></li>
+						th:href="@{/word/word(pageIndex=${page},type=${type})}" th:text="${page}"></a></li>
 					</li>
 					<li>
-					<a th:href="@{/word/toeic(pageIndex=${end+1})}" aria-label="Next"> <span aria-hidden="true">&gt;</span>
+					<a th:href="@{/word/word(pageIndex=${end+1},type=${type})}" aria-label="Next"> <span aria-hidden="true">&gt;</span>
 					</a>
 					</li>
-					<li><a th:href="@{/word/toeic(pageIndex=${count})}" aria-label="Last"> <span
+					<li><a th:href="@{/word/word(pageIndex=${count},type=${type})}" aria-label="Last"> <span
 							aria-hidden="true">Last</span>
 					</a></li>
 				</ul>
