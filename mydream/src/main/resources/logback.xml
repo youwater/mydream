@@ -34,11 +34,12 @@
         </rollingPolicy>
     </appender>
  
- 
+
     <logger name="애플리케이션패키지명(ex com.web.spring)" level="INFO"/>
  
     <root level="INFO"> <!-- DEBUG -->
         <appender-ref ref="ROLLING_FILE"/>
         <appender-ref ref="CONSOLE"/>
     </root>
+    
 </configuration>

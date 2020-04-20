@@ -48,41 +48,36 @@ tr :hover{
 			</thead>
 			<tbody>
 				<tr th:each="word,index : ${word}">
-					<td th:text="${index.count}">1</td>
+					<td th:text="${word.num}">1</td>
 					<td th:text="${word.englishword}">Mark</td>
 					<td th:text="${word.koreaword}">Otto</td>
 				</tr>
 			</tbody>
 		</table>
-		<nav style="text-align: center;">
-    <ul class="pagination">
-        <li class="disabled">
-            <a href="#" aria-label="First">
-                <span aria-hidden="true">First</span>
-            </a>
-        </li>
-        <li class="disabled">
-            <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&lt;</span>
-            </a>
-        </li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&gt;</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" aria-label="Last">
-                <span aria-hidden="true">Last</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+		<div class="page-num"
+			th:with="start=${start},
+                  end=${end}">
+			<nav style="text-align: center;">
+				<ul class="pagination">
+					<li class=""><a href="/word/toeic?pageIndex=1" aria-label="First"> <span
+							aria-hidden="true">First</span>
+					</a></li>
+					<li class=""><a th:href="@{/word/toeic(pageIndex=${start-1})}" aria-label="Previous"> <span
+							aria-hidden="true">&lt;</span>
+					</a></li>
+					<li th:each="page: ${#numbers.sequence(start, end)}"><a
+						th:href="@{/word/toeic(pageIndex=${page})}" th:text="${page}"></a></li>
+					</li>
+					<li>
+					<a th:href="@{/word/toeic(pageIndex=${end+1})}" aria-label="Next"> <span aria-hidden="true">&gt;</span>
+					</a>
+					</li>
+					<li><a th:href="@{/word/toeic(pageIndex=${count})}" aria-label="Last"> <span
+							aria-hidden="true">Last</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 </body>
 </html>

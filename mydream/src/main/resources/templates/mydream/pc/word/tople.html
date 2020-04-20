@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+</head>
+<style>
+td {
+word-break:break-all
+}
+tr :hover{
+	cursor: pointer;
+}
+.jumbotron{
+	background-image: url('/images/songlist.jpg');
+	background-size: cover;
+}
+</style>
+<script>
+</script>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<div class="jumbotron">
+			<h2>영어 실력을 향상시키고 싶다면</h2>
+			<h2>영어 문장을 매일 읽는 것을 권한다</h2>
+			<h2>무엇을 읽는지는 자유다.</h2>
+		</div>
+		<table class="table table-hover">
+			<colgroup>
+				<col width="15%">
+				<col width="25%">
+				<col width="25%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">번호</th>
+					<th scope="col">노래 제목</th>
+					<th scope="col">노래 가수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="word,index : ${word}">
+					<td th:text="${word.num}">1</td>
+					<td th:text="${word.englishword}">Mark</td>
+					<td th:text="${word.koreaword}">Otto</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="page-num"
+			th:with="start=${start},
+                  end=${end}">
+			<nav style="text-align: center;">
+				<ul class="pagination">
+					<li class=""><a href="/word/tople?pageIndex=1" aria-label="First"> <span
+							aria-hidden="true">First</span>
+					</a></li>
+					<li class=""><a th:href="@{/word/tople(pageIndex=${start-1})}" aria-label="Previous"> <span
+							aria-hidden="true">&lt;</span>
+					</a></li>
+					<li th:each="page: ${#numbers.sequence(start, end)}"><a
+						th:href="@{/word/tople(pageIndex=${page})}" th:text="${page}"></a></li>
+					</li>
+					<li>
+					<a th:href="@{/word/tople(pageIndex=${end+1})}" aria-label="Next"> <span aria-hidden="true">&gt;</span>
+					</a>
+					</li>
+					<li><a th:href="@{/word/tople(pageIndex=${count})}" aria-label="Last"> <span
+							aria-hidden="true">Last</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</body>
+</html>
