@@ -21,4 +21,8 @@ public class WordService {
 	public int selectCountWord(PageVO page) {
 		return wordMapper.selectCountWord(page);
 	}
+
+	public List selectListIndexWord() {
+		return wordMapper.selectListIndexWord();
+	}
 }

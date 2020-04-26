@@ -14,4 +14,6 @@ public interface WordMapper {
 
 	int selectCountWord(PageVO page);
 
+	List selectListIndexWord();
+
 }

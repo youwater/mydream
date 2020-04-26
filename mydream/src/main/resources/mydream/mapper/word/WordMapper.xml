@@ -8,4 +8,8 @@
     <select id="selectCountWord" resultType="integer">
         select count(*) from engword where wordtype=#{type};
     </select>
+    
+      <select id="selectListIndexWord" resultType="mydream.vo.word.WordVO">
+        select * from engword ORDER BY RANDOM() LIMIT 5
+    </select>
 </mapper>

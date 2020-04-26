@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css"
+	href="/css/jquery.bxslider.min.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>Insert title here</title>
+</head>
+<script>
+$(document).ready(function() {
+	aaa();
+});
+function aaa(){
+	$(".1").attr("name","answer1");
+	$(".2").attr("name","answer2");
+	$(".3").attr("name","answer3");
+}
+</script>
+<style>
+pre {
+	background-color: white;
+	margin: 20px;
+}
+.aa {
+	background-color: white;
+	float: right;
+	width: 45%;
+}
+.color{
+	color: blue;
+}
+.tb-border{
+ border-bottom:dashed 1px;
+ margin: 30px;
+}
+.td-answer{
+	padding-right: 40px;
+	padding-left: 40px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.tb-answer{
+margin-left: auto; margin-right: auto;
+background-color: OldLace;
+}
+</style>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+	<br>
+		<table class="tb-answer">
+			<tr >
+				<td class="td-answer">내가 쓴 답 :</td>
+				<td class="td-answer" th:each="answer : ${answer}" th:text="${answer}"></td>
+			</tr>
+			<tr >
+				<td class="td-answer">정&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp답 :</td>
+				<td class="td-answer" th:each="test,index: ${test}"  th:text="${test.answer}"></td>
+			</tr>
+		</table>		
+	<table th:each="test,index: ${test}" class="tb-border">
+		<tr>
+			<td th:text="${index.count}+' )  '+${test.content}"></td>
+		</tr>
+		<tr>
+			<td>&nbsp</td>
+		</tr>
+		<tr>
+		<form action="/engtest/checkengtest">
+			<td>
+			 <div th:text="${test.view1}">></div>
+			 <div th:text="${test.view2}">></div>
+			 <div th:text="${test.view3}">></div>
+			 <div th:text="${test.view4}">></div>
+			<br>
+			<br>
+			<span class="color">해&nbsp&nbsp석:&nbsp</span><span th:text="${test.interpretation}" ></span>
+			<br>
+			<br>
+			<span class="color">해&nbsp&nbsp설:&nbsp</span><span th:text="${test.explanation}" ></span>
+			<br>
+			<br>
+			<span class="color">어&nbsp&nbsp휘:&nbsp</span><span th:text="${test.word}" ></span>
+			<br>
+			<br>
+			<span class="color">정&nbsp&nbsp답:&nbsp</span><span th:text="${test.answer}" ></span>
+			<br>
+			<input type="hidden" name="titlenum" th:value="${test.num}">
+			<br>
+			</td>
+		</tr>
+	</table>
+	</form>
+	</div>
+</body>
+</html>

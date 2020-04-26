@@ -21,6 +21,5 @@ public interface SongMapper {
 
 	void updateCountClick(int clickcount, String songname);
 
-	List<SongVO> selectListSongWord();
 
 }

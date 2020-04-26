@@ -58,8 +58,6 @@
 }
 
 .table {
-	float: left;
-	width: 60%;
 }
 
 .col-md-4 {
@@ -96,13 +94,15 @@
 		<br>
 		<table class="table">
 			<colgroup>
-				<col width="20%">
+				<col width="10%">
+				<col width="10%">
 				<col width="30%">
 				<col width="50%">
 			</colgroup>
 			<thead>
 				<tr>
 					<th scope="col">번호</th>
+					<th scope="col">타입</th>
 					<th scope="col">영어단어</th>
 					<th scope="col">해석</th>
 				</tr>
@@ -110,12 +110,12 @@
 			<tbody>
 				<tr th:each="word,index : ${word}">
 					<th th:text="${index.count}">1</th>
+					<th th:text="${word.wordtype}">1</th>
 					<td th:text="${word.englishword}">Mark</td>
 					<td th:text="${word.koreaword}">Otto</td>
 				</tr>
 			</tbody>
 		</table>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<div>
 			<h2>명언으로 영어공부</h2>
 			<br>

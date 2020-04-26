@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css"
+	href="/css/jquery.bxslider.min.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>Insert title here</title>
+</head>
+<script>
+$(document).ready(function() {
+	aaa();
+});
+function aaa(){
+	$(".1").attr("name","answer1");
+	$(".2").attr("name","answer2");
+	$(".3").attr("name","answer3");
+}
+</script>
+<style>
+pre {
+	background-color: white;
+	margin: 20px;
+}
+.aa {
+	background-color: white;
+	float: right;
+	width: 45%;
+}
+</style>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+	<table th:each="test,index: ${test}">
+		<tr>
+			<td th:text="${index.count}+' )  '+${test.content}"></td>
+		</tr>
+		<tr>
+			<td>&nbsp</td>
+		</tr>
+		<tr>
+		<form action="/engtest/checkengtest">
+			<td>
+			<input type="radio" th:classappend="${index.count}" name="" value="A" th:text="${test.view1}">
+			<br>
+			<input type="radio" th:classappend="${index.count}" name="" value="B" th:text="${test.view2}">
+			<br>
+			<input type="radio" th:classappend="${index.count}" name="" value="C" th:text="${test.view3}">
+			<br>
+			<input type="radio" th:classappend="${index.count}" name="" value="D" th:text="${test.view4}">
+			<br>
+			<input type="hidden" name="titlenum" th:value="${test.num}">
+			</td>
+		</tr>
+		<br>
+	</table>
+	<br>
+	<button id="aaa" class="btn btn-primary">정답 해설 확인</button>
+	</form>
+	</div>
+</body>
+</html>

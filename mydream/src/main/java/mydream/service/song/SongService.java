@@ -76,11 +76,7 @@ public class SongService {
 		
 		return songword;
 	}
+	
+	
 
-
-	public Object selectListSongWord() {
-		List<SongVO> songword =  songMapper.selectListSongWord();
-		return songword;
-	}
-		
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mydream.mapper.engtest.EngtestMapper">
+
+    <select id="selectToeicPart5" resultType="mydream.vo.engtest.EngtestVO" >
+        SELECT * FROM toeicpart5 where num in(1,2,3);
+    </select>
+    
+      <select id="selectToeicPart5Answer" resultType="mydream.vo.engtest.EngtestVO" parameterType="mydream.vo.engtest.EngtestVO" >
+        SELECT * FROM toeicpart5answer a left join toeicpart5 b on a.num = b.num where b.num in(1,2,3);
+    </select>
+    
+     <select id="selectEngtestCount" resultType="Integer" >
+        SELECT count(*) FROM toeicpart5;
+    </select>
+    
+</mapper>

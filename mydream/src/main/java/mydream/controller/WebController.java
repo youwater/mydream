@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import mydream.service.MydreamService;
 import mydream.service.saying.SayingService;
 import mydream.service.song.SongService;
+import mydream.service.word.WordService;
 
 @Slf4j
 @Controller
@@ -25,6 +26,9 @@ public class WebController {
 	   @Autowired
 	   SayingService sayingService;
 	   
+	   @Autowired
+	   WordService wordService;
+	   
 	   
 	@RequestMapping("/")
 		public ModelAndView index(ModelAndView m,Model model,Device device) throws Exception {
@@ -37,7 +41,7 @@ public class WebController {
 			 m.setViewName("mydream/pc/index");
 		}
 		 m.addObject("song",songService.selectListSongInfo());
-		 m.addObject("word",songService.selectListSongWord());
+		 m.addObject("word",wordService.selectListIndexWord());
 		 m.addObject("saying",sayingService.selectListSayinfo());
 		return m;
 	}
