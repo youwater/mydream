@@ -16,3 +16,23 @@ create table engword(
 	englishword  varchar(50),
 	koreaword  varchar(100)
 );
+
+CREATE SEQUENCE seq_toeic START 1;
+CREATE SEQUENCE seq_toeicanswer START 1;
+
+create table toeicpart5(
+	num integer DEFAULT nextval('seq_toeic'),
+	content  varchar(2000),
+    view1 varchar(1000),
+    view2 varchar(1000),
+    view3 varchar(1000),
+	view4 varchar(1000)
+);
+
+create table toeicpart5answer(
+	num integer DEFAULT nextval('seq_toeicanswer'),
+	interpretation varchar(2000),
+	explanation  varchar(2000),
+	word varchar(1000),
+	answer varchar(10)
+);

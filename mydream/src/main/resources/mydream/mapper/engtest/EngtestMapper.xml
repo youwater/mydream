@@ -3,15 +3,23 @@
 <mapper namespace="mydream.mapper.engtest.EngtestMapper">
 
     <select id="selectToeicPart5" resultType="mydream.vo.engtest.EngtestVO" >
-        SELECT * FROM toeicpart5 where num in(1,2,3);
+        SELECT * FROM toeicpart5 order by num offset (#{day}-1) * 3 limit 3;
     </select>
     
       <select id="selectToeicPart5Answer" resultType="mydream.vo.engtest.EngtestVO" parameterType="mydream.vo.engtest.EngtestVO" >
-        SELECT * FROM toeicpart5answer a left join toeicpart5 b on a.num = b.num where b.num in(1,2,3);
+        SELECT * FROM toeicpart5answer a left join toeicpart5 b on a.num = b.num  order by b.num offset (#{day}-1) * 3 limit 3;
     </select>
     
      <select id="selectEngtestCount" resultType="Integer" >
         SELECT count(*) FROM toeicpart5;
     </select>
+    
+     <insert id="toeic5insert" parameterType="mydream.vo.engtest.EngtestVO">
+    	insert into toeicpart5 (content,view1,view2,view3,view4) values(#{content},#{view1},#{view2},#{view3},#{view4});
+    </insert>
+    
+       <insert id="toeic5answerinsert" parameterType="mydream.vo.engtest.EngtestVO">
+    	insert into toeicpart5answer (interpretation,explanation,word,answer) values(#{interpretation},#{explanation},#{word},#{answer});
+    </insert>
     
 </mapper>

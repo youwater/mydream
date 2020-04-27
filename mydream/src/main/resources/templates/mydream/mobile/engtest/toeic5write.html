@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>Insert title here</title>
+</head>
+<style>
+.aaa {
+	float: right;
+	width: 55%;
+	overflow: auto;
+}
+
+.divcss {
+	width: 500px;
+	float: left;
+	width: 40%
+}
+</style>
+<body>
+
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<div class="divcss">
+			</br>
+			<div>
+				<label for="content">문제 내용</label>
+				<textarea class="form-control" rows="5" name="songlyrics" id="songlyrics" placeholder="내용을 입력해 주세요"></textarea>
+			</div>
+			</br>
+			<div>
+				<label for="content">정답</label>
+				<textarea class="form-control" rows="5" name="songlyrics" id="songlyrics" placeholder="내용을 입력해 주세요"></textarea>
+			</div>
+			</br>
+			<div>
+				<button type="submit" class="btn btn-primary" id="btnSave">저장</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

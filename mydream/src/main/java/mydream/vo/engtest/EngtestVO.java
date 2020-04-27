@@ -25,4 +25,6 @@ public class EngtestVO {
 	String answer;
 	
 	String [] titlenum;
+	String answerview;
+	int day;
 }

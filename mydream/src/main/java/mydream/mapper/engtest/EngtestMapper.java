@@ -10,9 +10,13 @@ import mydream.vo.engtest.EngtestVO;
 public interface EngtestMapper {
 
 
-	List<EngtestVO> selectToeicPart5();
+	List<EngtestVO> selectToeicPart5(EngtestVO engtestVO);
 
 	List<EngtestVO> selectToeicPart5Answer(EngtestVO engtestVO);
 
 	int selectEngtestCount();
+
+	void toeic5insert(EngtestVO engtestVO);
+
+	void toeic5answerinsert(EngtestVO engtestVO);
 }
