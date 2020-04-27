@@ -32,20 +32,41 @@
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
 		<div class="divcss">
+		<form action="/engtest/toeic5insert">
 			</br>
 			<div>
 				<label for="content">문제 내용</label>
-				<textarea class="form-control" rows="5" name="songlyrics" id="songlyrics" placeholder="내용을 입력해 주세요"></textarea>
+				<textarea class="form-control" rows="5" name="content" placeholder="내용을 입력해 주세요"></textarea>
 			</div>
 			</br>
 			<div>
-				<label for="content">정답</label>
-				<textarea class="form-control" rows="5" name="songlyrics" id="songlyrics" placeholder="내용을 입력해 주세요"></textarea>
+				<label for="content">문제 답 보기</label>
+				<textarea class="form-control" rows="5" name="answerview"  placeholder="내용을 입력해 주세요"></textarea>
+			</div>
+			</br>
+				</br>
+			<div>
+				<label for="content">해석</label>
+				<textarea class="form-control" rows="5" name="interpretation" placeholder="내용을 입력해 주세요"></textarea>
+			</div>
+			</br>
+			<div>
+				<label for="content">해설</label>
+				<textarea class="form-control" rows="5" name="explanation" placeholder="내용을 입력해 주세요"></textarea>
+			</div>
+			<div>
+				<label for="content">어휘</label>
+				<textarea class="form-control" rows="5" name="word" placeholder="내용을 입력해 주세요"></textarea>
+			</div>
+			<div>
+				<label for="content">답</label>
+				<textarea class="form-control" rows="1" name="answer" placeholder="내용을 입력해 주세요"></textarea>
 			</div>
 			</br>
 			<div>
 				<button type="submit" class="btn btn-primary" id="btnSave">저장</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </body>

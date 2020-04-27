@@ -35,10 +35,10 @@ function submit(a) {
     var form = document.createElement("form");
     form.setAttribute("charset", "UTF-8");
     form.setAttribute("method", "GET");  //Post 방식
-    form.setAttribute("action", "/song/read"); //요청 보낼 주소
+    form.setAttribute("action", "/engtest/toeic5"); //요청 보낼 주소
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "songname");
+    hiddenField.setAttribute("name", "day");
     hiddenField.setAttribute("value", songname);
     form.appendChild(hiddenField);
     document.body.appendChild(form);
@@ -57,26 +57,21 @@ function submit(a) {
 		<table class="table table-hover">
 			<colgroup>
 				<col width="15%">
-				<col width="15%">
 				<col width="40%">
-				<col width="15%">
 				<col width="15%">
 			</colgroup>
 			<thead>
 				<tr>
-					<th scope="col">번호</th>
 					<th scope="col">day</th>
 					<th scope="col">제목</th>
 					<th scope="col">type</th>
-					<th scope="col">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
-					<tr th:each="list,index : ${list}">
-					<td th:text="${list.num}">1</td>
-<!-- 					<td th:text="${list.day}">Otto</td> -->
-<!-- 					<td th:text="${list.title}">Otto</td> -->
-<!-- 					<td th:text="${list.type}">Otto</td> -->
+				<tr th:each="list,index : ${aaa}" th:value="${index.count}">
+					<td th:text="${list.day}">Otto</td>
+					<td th:text="${list.title}">Otto</td>
+					<td th:text="${list.type}">Otto</td>
 				</tr>
 			</tbody>
 		</table>

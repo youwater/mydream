@@ -51,7 +51,7 @@ pre {
 		</div>
 	<table th:each="test,index: ${test}">
 		<tr>
-			<td th:text="${index.count}+' )  '+${test.content}"></td>
+			<td th:text="${test.content}"></td>
 		</tr>
 		<tr>
 			<td>&nbsp</td>
@@ -68,6 +68,7 @@ pre {
 			<input type="radio" th:classappend="${index.count}" name="" value="D" th:text="${test.view4}">
 			<br>
 			<input type="hidden" name="titlenum" th:value="${test.num}">
+			<input type="hidden" name="day" th:value="${day}">
 			</td>
 		</tr>
 		<br>
