@@ -31,47 +31,49 @@ $(document).ready(function() {
 	});
 });
 function submit(a) {
-	 var songname = a;
+	 var year = a
     var form = document.createElement("form");
     form.setAttribute("charset", "UTF-8");
     form.setAttribute("method", "GET");  //Post 방식
-    form.setAttribute("action", "/engtest/toeic5"); //요청 보낼 주소
+    form.setAttribute("action", "/engtest/police"); //요청 보낼 주소
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "day");
-    hiddenField.setAttribute("value", songname);
+    hiddenField.setAttribute("name", "year");
+    hiddenField.setAttribute("value", year);
     form.appendChild(hiddenField);
     document.body.appendChild(form);
     form.submit();
  }
-
 </script>
 <body>
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
 		<div class="jumbotron">
-			<h6>영어 실력을 향상시키고 싶다면</h6>
-			<h6>영어 문장을 매일 읽는 것을 권한다</h6>
-			<h6>무엇을 읽는지는 자유다.</h6>
+			<h2>영어 실력을 향상시키고 싶다면</h2>
+			<h2>영어 문장을 매일 읽는 것을 권한다</h2>
+			<h2>무엇을 읽는지는 자유다.</h2>
 		</div>
 		<table class="table table-hover">
 			<colgroup>
-				<col width="15%">
+				<col width="25%">
+				<col width="20%">
+				<col width="20%">
 				<col width="40%">
-				<col width="15%">
 			</colgroup>
 			<thead>
 				<tr>
-					<th scope="col">day</th>
+					<th scope="col">번호</th>
+					<th scope="col">년도</th>
+					<th scope="col">횟차</th>
 					<th scope="col">제목</th>
-					<th scope="col">type</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="list,index : ${aaa}" th:value="${index.count}">
-					<td th:text="${list.day}">Otto</td>
-					<td th:text="${list.title}">Otto</td>
-					<td th:text="${list.type}">Otto</td>
+				<tr value="20191">
+					<td>1</td>
+					<td>2019</td>
+					<td>1회</td>
+					<td>경찰 공무원 영어 시험 2019 1회차</td>
 				</tr>
 			</tbody>
 		</table>

@@ -76,6 +76,17 @@ public class SongService {
 		
 		return songword;
 	}
+
+
+	public Object selectListSongInfoRan() {
+		List<SongVO> songword =  songMapper.selectListSongInfoRan();
+		for(int i=0;i<songword.size();i++) {
+			songword.get(i).setSongname(songword.get(i).getSongname().replace("+", "'"));
+			songword.get(i).setSongartist(songword.get(i).getSongartist().replace("+", "'"));
+		}
+		
+		return songword;
+	}
 	
 	
 

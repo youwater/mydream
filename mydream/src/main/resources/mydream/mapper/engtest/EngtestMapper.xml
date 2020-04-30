@@ -22,4 +22,21 @@
     	insert into toeicpart5answer (interpretation,explanation,word,answer) values(#{interpretation},#{explanation},#{word},#{answer});
     </insert>
     
+    <insert id="policeInsert" parameterType="mydream.vo.engtest.EngtestVO">
+    	insert into polcetest (title,content,view1,view2,view3,view4,year,count,type) values(#{title},#{content},#{view1},#{view2},#{view3},#{view4},#{year},#{count},#{type});
+    </insert>
+    
+    <insert id="poloceInsertAnswer" parameterType="mydream.vo.engtest.EngtestVO">
+    	insert into polcetestanswer (interpretation,explanation,word,answer,year,count,type) values(#{interpretation},#{explanation},#{word},#{answer},#{year},#{count},#{type});
+    </insert>
+    
+     <select id="selectPolice" resultType="mydream.vo.engtest.EngtestVO" >
+        SELECT * FROM polcetest where year = #{year} and count = #{count} order by num 
+    </select>
+    
+         <select id="selectPoliceAnswer" resultType="mydream.vo.engtest.EngtestVO" parameterType="mydream.vo.engtest.EngtestVO" >
+        SELECT * FROM polcetestanswer a left join polcetest b on a.num = b.num  where b.year = #{year} and b.count = #{count} order by b.num 
+    </select>
+    
+    
 </mapper>

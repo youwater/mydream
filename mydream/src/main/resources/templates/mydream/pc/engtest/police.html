@@ -24,6 +24,23 @@ function aaa(){
 	$(".1").attr("name","answer1");
 	$(".2").attr("name","answer2");
 	$(".3").attr("name","answer3");
+	$(".4").attr("name","answer4");
+	$(".5").attr("name","answer5");
+	$(".6").attr("name","answer6");
+	$(".7").attr("name","answer7");
+	$(".8").attr("name","answer8");
+	$(".9").attr("name","answer9");
+	$(".10").attr("name","answer10");
+	$(".11").attr("name","answer11");
+	$(".12").attr("name","answer12");
+	$(".13").attr("name","answer13");
+	$(".14").attr("name","answer14");
+	$(".15").attr("name","answer15");
+	$(".16").attr("name","answer16");
+	$(".17").attr("name","answer17");
+	$(".18").attr("name","answer18");
+	$(".19").attr("name","answer19");
+	$(".20").attr("name","answer20");
 }
 </script>
 <style>
@@ -45,11 +62,14 @@ pre {
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
 		<div class="jumbotron">
-			<h6>영어 실력을 향상시키고 싶다면</h6>
-			<h6>영어 문장을 매일 읽는 것을 권한다</h6>
-			<h6>무엇을 읽는지는 자유다.</h6>
+			<h4>영어 실력을 향상시키고 싶다면</h4>
+			<h4>영어 문장을 매일 읽는 것을 권한다</h4>
+			<h4>무엇을 읽는지는 자유다.</h4>
 		</div>
 	<table th:each="test,index: ${test}">
+		<tr>
+			<td th:text="${test.title}"></td>
+		</tr>
 		<tr>
 			<td th:text="${test.content}"></td>
 		</tr>
@@ -57,21 +77,22 @@ pre {
 			<td>&nbsp</td>
 		</tr>
 		<tr>
-		<form action="/engtest/checkengtest">
+		<form action="/engtest/checkpolice">
 			<td>
-			<input type="radio" th:classappend="${index.count}" name="" value="A" th:text="${test.view1}">
+			<input type="radio" th:classappend="${index.count}" name="" value="1" th:text="${test.view1}">
 			<br>
-			<input type="radio" th:classappend="${index.count}" name="" value="B" th:text="${test.view2}">
+			<input type="radio" th:classappend="${index.count}" name="" value="2" th:text="${test.view2}">
 			<br>
-			<input type="radio" th:classappend="${index.count}" name="" value="C" th:text="${test.view3}">
+			<input type="radio" th:classappend="${index.count}" name="" value="3" th:text="${test.view3}">
 			<br>
-			<input type="radio" th:classappend="${index.count}" name="" value="D" th:text="${test.view4}">
+			<input type="radio" th:classappend="${index.count}" name="" value="4" th:text="${test.view4}">
 			<br>
 			<input type="hidden" name="titlenum" th:value="${test.num}">
-			<input type="hidden" name="day" th:value="${day}">
 			</td>
 		</tr>
 		<br>
+			<input type="hidden" name="year" th:value="${test.year}">
+			<input type="hidden" name="count" th:value="${test.count}">
 	</table>
 	<br>
 	<button id="aaa" class="btn btn-primary">정답 해설 확인</button>

@@ -12,5 +12,7 @@ public interface SayingMapper {
 	void sayingwrite(SayingVO sayingVO);
 
 	List<SayingVO> selectListSayinfo();
+
+	List<SayingVO> selectListSayinfoRan();
 	
 }

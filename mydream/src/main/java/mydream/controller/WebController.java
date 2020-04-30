@@ -40,9 +40,9 @@ public class WebController {
 			System.out.println("pc입니다");
 			 m.setViewName("mydream/pc/index");
 		}
-		 m.addObject("song",songService.selectListSongInfo());
+		 m.addObject("song",songService.selectListSongInfoRan());
 		 m.addObject("word",wordService.selectListIndexWord());
-		 m.addObject("saying",sayingService.selectListSayinfo());
+		 m.addObject("saying",sayingService.selectListSayinfoRan());
 		return m;
 	}
 	

@@ -113,5 +113,108 @@ public class EngtestController {
 		return m;
 	}
 	
+	@RequestMapping("/engtest/policewrite")
+	@ResponseBody
+	public ModelAndView policewrite(ModelAndView m ,Device device,EngtestVO engtestVO) throws Exception {
+		if(device.isMobile()) {
+			 m.setViewName("mydream/mobile/engtest/policewrite");
+		}else {
+			 m.setViewName("mydream/pc/engtest/policewrite");
+		}
+		
 	
+		return m;
+	}
+	
+	@RequestMapping("/engtest/policeinsert")
+	@ResponseBody
+	public ModelAndView poloceinsert(ModelAndView m ,Device device,EngtestVO engtestVO) throws Exception {
+		
+		if(device.isMobile()) {
+			 m.setViewName("mydream/mobile/engtest/policewrite");
+		}else {
+			 m.setViewName("mydream/pc/engtest/policewrite");
+		}
+		
+		emgntestService.poloceInsert(engtestVO);
+		emgntestService.poloceInsertAnswer(engtestVO);
+	
+		
+		return m;
+	}
+	
+	@RequestMapping("/engtest/police")
+	@ResponseBody
+	public ModelAndView police(ModelAndView m ,Device device, EngtestVO engtestVO) throws Exception {
+		if(device.isMobile()) {
+			 m.setViewName("mydream/mobile/engtest/police");
+		}else {
+			 m.setViewName("mydream/pc/engtest/police");
+		}
+		
+		List<EngtestVO> eng = emgntestService.selectPolice(engtestVO);
+		m.addObject("test",eng);
+		
+		return m;
+	}
+	
+	@RequestMapping("/engtest/checkpolice")
+	@ResponseBody
+	public ModelAndView checkpolice(ModelAndView m ,Device device,EngtestVO engtestVO) throws Exception {
+		if(device.isMobile()) {
+			 m.setViewName("mydream/mobile/engtest/policeanswer");
+		}else {
+			 m.setViewName("mydream/pc/engtest/policeanswer");
+		}
+		
+		List<String> answer = new ArrayList<String>();
+			answer.add(engtestVO.getAnswer1());	
+			answer.add(engtestVO.getAnswer2());	
+			answer.add(engtestVO.getAnswer3());	
+			answer.add(engtestVO.getAnswer4());	
+			answer.add(engtestVO.getAnswer5());	
+			answer.add(engtestVO.getAnswer6());	
+			answer.add(engtestVO.getAnswer7());	
+			answer.add(engtestVO.getAnswer8());	
+			answer.add(engtestVO.getAnswer9());	
+			answer.add(engtestVO.getAnswer10());	
+			answer.add(engtestVO.getAnswer11());	
+			answer.add(engtestVO.getAnswer12());	
+			answer.add(engtestVO.getAnswer13());	
+			answer.add(engtestVO.getAnswer14());	
+			answer.add(engtestVO.getAnswer15());	
+			answer.add(engtestVO.getAnswer16());	
+			answer.add(engtestVO.getAnswer17());	
+			answer.add(engtestVO.getAnswer18());	
+			answer.add(engtestVO.getAnswer19());	
+			answer.add(engtestVO.getAnswer20());	
+			
+		List<EngtestVO> eng2 = emgntestService.selectPoliceAnswer(engtestVO);
+		int count = 0;
+		for(int i=0; i <eng2.size(); i++) {
+			System.out.println(answer.get(i));
+			System.out.println(eng2.get(i).getAnswer());
+			if(answer.get(i) != null && answer.get(i).equals(eng2.get(i).getAnswer())) {
+				count = count+5;
+			}
+		}
+		
+		m.addObject("test",eng2);
+		m.addObject("answer",answer);
+		m.addObject("count",count);
+		return m;
+	}
+	
+	@RequestMapping("/engtest/policelist")
+	@ResponseBody
+	public ModelAndView policelist(ModelAndView m ,Device device,EngtestVO engtestVO) throws Exception {
+		if(device.isMobile()) {
+			 m.setViewName("mydream/mobile/engtest/policelist");
+		}else {
+			 m.setViewName("mydream/pc/engtest/policelist");
+		}
+		
+	
+		return m;
+	}
 }

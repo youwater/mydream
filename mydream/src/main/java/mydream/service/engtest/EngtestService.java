@@ -29,7 +29,6 @@ public class EngtestService {
 
 
 	public int selectEngtestCount() {
-		// TODO Auto-generated method stub
 		return engtestMapper.selectEngtestCount();
 	}
 
@@ -48,6 +47,45 @@ public class EngtestService {
 	public void toeic5answerinsert(EngtestVO engtestVO) {
 		engtestMapper.toeic5answerinsert(engtestVO);
 		
+	}
+
+
+
+
+	public void poloceInsert(EngtestVO engtestVO) {
+		String [] spanswer = engtestVO.getAnswerview().split("\\n");
+		engtestVO.setView1(spanswer[0]);
+		engtestVO.setView2(spanswer[1]);
+		engtestVO.setView3(spanswer[2]);
+		engtestVO.setView4(spanswer[3]);
+		engtestMapper.policeInsert(engtestVO);
+		
+	}
+
+
+	public void poloceInsertAnswer(EngtestVO engtestVO) {
+		engtestMapper.policeInsertAnswer(engtestVO);
+		
+	}
+
+
+	public List<EngtestVO> selectPolice(EngtestVO engtestVO) {
+		
+		
+		String year = Integer.toString(engtestVO.getYear()).substring(0,4);
+		String count = Integer.toString(engtestVO.getYear()).substring(4,5);
+		engtestVO.setCount(Integer.parseInt(count));
+		engtestVO.setYear(Integer.parseInt(year));
+		
+		
+		List<EngtestVO>  engtestVO3 =engtestMapper.selectPolice(engtestVO);
+		return engtestVO3;
+	}
+
+
+	public List<EngtestVO> selectPoliceAnswer(EngtestVO engtestVO) {
+		List<EngtestVO>  engtestVO2 =engtestMapper.selectPoliceAnswer(engtestVO);
+		return engtestVO2;
 	}
 
 }

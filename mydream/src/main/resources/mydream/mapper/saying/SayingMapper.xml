@@ -9,4 +9,8 @@
       <select id="selectListSayinfo" resultType="mydream.vo.saying.SayingVO">
         select * from sayinginfo;
     </select>
+    
+     <select id="selectListSayinfoRan" resultType="mydream.vo.saying.SayingVO">
+        select * from sayinginfo ORDER BY RANDOM() LIMIT 6
+    </select>
 </mapper>

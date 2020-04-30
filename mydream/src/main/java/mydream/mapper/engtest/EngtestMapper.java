@@ -19,4 +19,12 @@ public interface EngtestMapper {
 	void toeic5insert(EngtestVO engtestVO);
 
 	void toeic5answerinsert(EngtestVO engtestVO);
+
+	void policeInsert(EngtestVO engtestVO);
+
+	void policeInsertAnswer(EngtestVO engtestVO);
+
+	List<EngtestVO> selectPolice(EngtestVO engtestVO);
+
+	List<EngtestVO> selectPoliceAnswer(EngtestVO engtestVO);
 }

@@ -32,4 +32,14 @@ public class SayingService {
 		return sayingVO;
 	}
 
+	public Object selectListSayinfoRan() {
+	List<SayingVO> sayingVO =  sayingMapper.selectListSayinfoRan();
+		
+		for(int i=0;i<sayingVO.size();i++) {
+			sayingVO.get(i).setEngcontent(sayingVO.get(i).getEngcontent().replace("+", "'"));
+			sayingVO.get(i).setEngcontent(sayingVO.get(i).getEngcontent().replace("+", "'"));
+		}
+		return sayingVO;
+	}
+
 }

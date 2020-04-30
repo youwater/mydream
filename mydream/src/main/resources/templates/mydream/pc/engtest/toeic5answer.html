@@ -70,7 +70,7 @@ background-color: OldLace;
 		</table>		
 	<table th:each="test,index: ${test}" class="tb-border">
 		<tr>
-			<td th:text="${index.count}+' )  '+${test.content}"></td>
+			<td th:text="${test.content}"></td>
 		</tr>
 		<tr>
 			<td>&nbsp</td>

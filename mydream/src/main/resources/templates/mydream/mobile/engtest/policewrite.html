@@ -19,7 +19,31 @@
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
 		<div class="divcss">
-		<form action="/engtest/toeic5insert">
+		<form action="/engtest/policeinsert">
+			</br>
+			<div>
+				<label for="">년도</label>
+				<input type="number"  name="year" value="2019"/>
+				<label for="">회차</label>
+				<select name='count'>
+				  <option value=1>1</option>
+				  <option value=2>2</option>
+				  <option value=3>3</option>
+				</select>
+				<label for="">문제유형</label>
+				<select name='type'>
+				  <option value="어휘">어휘</option>
+				  <option value="문법">문법</option>
+				  <option value="어휘.문법">어휘.문법</option>
+				  <option value="생활영어">생활영어</option>
+				  <option value="독해">독해</option>
+				</select>
+			</div>
+			</br>
+			<div>
+				<label for="title">문제 제목</label>
+				<textarea class="form-control" rows="5" name="title" placeholder="내용을 입력해 주세요"></textarea>
+			</div>
 			</br>
 			<div>
 				<label for="content">문제 내용</label>
