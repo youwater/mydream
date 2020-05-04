@@ -26,7 +26,7 @@
     	insert into polcetest (title,content,view1,view2,view3,view4,year,count,type) values(#{title},#{content},#{view1},#{view2},#{view3},#{view4},#{year},#{count},#{type});
     </insert>
     
-    <insert id="poloceInsertAnswer" parameterType="mydream.vo.engtest.EngtestVO">
+    <insert id="policeInsertAnswer" parameterType="mydream.vo.engtest.EngtestVO">
     	insert into polcetestanswer (interpretation,explanation,word,answer,year,count,type) values(#{interpretation},#{explanation},#{word},#{answer},#{year},#{count},#{type});
     </insert>
     

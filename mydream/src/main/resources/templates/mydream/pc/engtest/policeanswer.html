@@ -64,17 +64,25 @@ background-color: OldLace;
 				<td class="td-answer" th:text="${count}"></td>
 			</tr>
 			<tr >
+				<td class="td-answer">번&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp호 :</td>
+				<td class="td-answer" th:each="test,index: ${test}" th:text="${index.count}"></td>
+			</tr>
+			<tr >
 				<td class="td-answer">내가 쓴 답 :</td>
 				<td class="td-answer" th:each="answer : ${answer}" th:text="${answer}"></td>
 			</tr>
 			<tr >
 				<td class="td-answer">정&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp답 :</td>
-				<td class="td-answer" th:each="test,index: ${test}"  th:text="${test.answer}"></td>
+<!-- 				<td class="td-answer" th:each="test,index: ${test}"  th:text="${test.answer}"></td> -->
+				<td class="td-answer" th:each="OX,index: ${OX}"  th:text="${OX}"></td>
 			</tr>
 		</table>		
 	<table th:each="test,index: ${test}" class="tb-border">
 		<tr>
 			<td th:text="${test.title}"></td>
+		</tr>
+		<tr>
+			<td>&nbsp</td>
 		</tr>
 		<tr>
 			<td th:text="${test.content}"></td>

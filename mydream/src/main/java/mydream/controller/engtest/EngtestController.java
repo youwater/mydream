@@ -190,18 +190,23 @@ public class EngtestController {
 			answer.add(engtestVO.getAnswer20());	
 			
 		List<EngtestVO> eng2 = emgntestService.selectPoliceAnswer(engtestVO);
+		List<String> OX = new ArrayList<String>();
 		int count = 0;
 		for(int i=0; i <eng2.size(); i++) {
 			System.out.println(answer.get(i));
 			System.out.println(eng2.get(i).getAnswer());
 			if(answer.get(i) != null && answer.get(i).equals(eng2.get(i).getAnswer())) {
 				count = count+5;
+				OX.add("O");
+			}else {
+				OX.add("X");
 			}
 		}
 		
 		m.addObject("test",eng2);
 		m.addObject("answer",answer);
 		m.addObject("count",count);
+		m.addObject("OX",OX);
 		return m;
 	}
 	

@@ -59,7 +59,7 @@ background-color: OldLace;
 			<tr >
 				<td class="td-answer">점수 :</td>
 				<td class="td-answer" th:text="${count}"></td>
-			</tr>
+		
 			<tr >
 				<td class="td-answer">내가 쓴 답 :</td>
 				<td class="td-answer" th:each="answer : ${answer}" th:text="${answer}"></td>
@@ -72,6 +72,9 @@ background-color: OldLace;
 	<table th:each="test,index: ${test}" class="tb-border">
 		<tr>
 			<td th:text="${test.title}"></td>
+		</tr>
+		<tr>
+			<td>&nbsp</td>
 		</tr>
 		<tr>
 			<td th:text="${test.content}"></td>
