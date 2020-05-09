@@ -1,45 +1,45 @@
 <configuration>
-    <!-- Created By yeoseong_yoon -->
-    <!-- 로그 경로 변수 선언 -->
-    <property name="LOG_DIR" value="/mydream" />
-    <property name="LOG_PATH" value="${LOG_DIR}//mydream.log"/>
+<!--     Created By yeoseong_yoon -->
+<!--     로그 경로 변수 선언 -->
+<!--     <property name="LOG_DIR" value="/mydream" /> -->
+<!--     <property name="LOG_PATH" value="${LOG_DIR}//mydream.log"/> -->
     
-    <!-- Console Appender -->
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>
-                %-5level %d{HH:mm:ss.SSS} [%thread %F:%L] %method - %msg%n
-            </pattern>
-        </encoder>
-    </appender>
-    <!-- Rolling File Appender -->
-    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 파일 경로 -->
-        <file>${LOG_PATH}</file>
-        <!-- 출력패턴 -->
-        <encoder>
-            <pattern>%-5level %d{HH:mm:ss.SSS} [%thread %F:%L] %method - %msg%n</pattern>
-        </encoder>
-        <!-- Rolling 정책 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- .gz,.zip 등을 넣으면 자동으로 일자별 로그파일 압축 -->
-            <fileNamePattern>${LOG_DIR}/app_%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- 파일당 최고 용량 10MB -->
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <!-- 일자별 로그파일 최대 보관주기(일단위) 
-            만약 해당 설정일 이상된 파일은 자동으로 제거-->
-            <maxHistory>60</maxHistory>
-        </rollingPolicy>
-    </appender>
+<!--     Console Appender -->
+<!--     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender"> -->
+<!--         <encoder> -->
+<!--             <pattern> -->
+<!--                 %-5level %d{HH:mm:ss.SSS} [%thread %F:%L] %method - %msg%n -->
+<!--             </pattern> -->
+<!--         </encoder> -->
+<!--     </appender> -->
+<!--     Rolling File Appender -->
+<!--     <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender"> -->
+<!--         파일 경로 -->
+<!--         <file>${LOG_PATH}</file> -->
+<!--         출력패턴 -->
+<!--         <encoder> -->
+<!--             <pattern>%-5level %d{HH:mm:ss.SSS} [%thread %F:%L] %method - %msg%n</pattern> -->
+<!--         </encoder> -->
+<!--         Rolling 정책 -->
+<!--         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> -->
+<!--             .gz,.zip 등을 넣으면 자동으로 일자별 로그파일 압축 -->
+<!--             <fileNamePattern>${LOG_DIR}/app_%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern> -->
+<!--             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> -->
+<!--                 파일당 최고 용량 10MB -->
+<!--                 <maxFileSize>10MB</maxFileSize> -->
+<!--             </timeBasedFileNamingAndTriggeringPolicy> -->
+<!--             일자별 로그파일 최대 보관주기(일단위)   -->
+<!--             만약 해당 설정일 이상된 파일은 자동으로 제거  -->
+<!--             <maxHistory>60</maxHistory> -->
+<!--         </rollingPolicy> -->
+<!--     </appender> -->
  
 
-    <logger name="애플리케이션패키지명(ex com.web.spring)" level="INFO"/>
+<!--     <logger name="애플리케이션패키지명(ex com.web.spring)" level="INFO"/> -->
  
-    <root level="INFO"> <!-- DEBUG -->
-        <appender-ref ref="ROLLING_FILE"/>
-        <appender-ref ref="CONSOLE"/>
-    </root>
+<!--     <root level="INFO"> DEBUG -->
+<!--         <appender-ref ref="ROLLING_FILE"/> -->
+<!--         <appender-ref ref="CONSOLE"/> -->
+<!--     </root> -->
     
 </configuration>
