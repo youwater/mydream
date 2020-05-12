@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css" href="/css/auth/auth.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>준영어</title>
+</head>
+<style>
+td {
+word-break:break-all
+}
+tr :hover{
+	cursor: pointer;
+}
+.jumbotron{
+	background-image: url('/images/songlist.jpg');
+	background-size: cover;
+}
+.testword{
+	text-align: center;
+}
+.engword{
+	font-size: 60px;
+}
+.answer{
+	font-size: 18px;
+}
+.korea{
+text-align: center;
+	font-size: 30px;
+}
+
+</style>
+<script>
+$(document).ready(function() {
+	$(".btn-primary").click(function(){
+		if($('input:radio[name=check]').is(':checked') == false){
+			alert("버튼을 확인하세요");	
+		}else{
+			   var st = $(":input:radio[name=check]:checked").val();
+			  if(st == $("#korea").val()){
+				  alert("정답입니다")
+				  var a = $("#korea2").val();
+				  window.location.href = 'http://www.0jun.co.kr/word/wordtest?type='+a;
+			  }else{
+				  alert("틀렸습니다 정답은 "+$("#korea").val()+"입니다");
+			  }
+		}
+	});
+});
+</script>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+		<div class="jumbotron">
+			<h2>영어 실력을 향상시키고 싶다면</h2>
+			<h2>영어 문장을 매일 읽는 것을 권한다</h2>
+			<h2>무엇을 읽는지는 자유다.</h2>
+		</div>
+		<div class="testword">
+		<div>
+			<div class = "engword" th:text="${wordeng.englishword}" th:value="${wordeng.koreaword}"></div>
+			<input type="hidden" id="korea" class ="korea"  th:value="${wordeng.koreaword}"/>
+			<input type="hidden" id="korea2" class ="korea"  th:value="${wordeng.wordtype}"/>
+			<br>
+			<sapn class = "answer" th:each="word,index : ${word}"><input type="radio"  name="check"  th:value="${word.koreaword}" th:text="${index.count}+') '+${word.koreaword}">&nbsp&nbsp&nbsp</sapn>
+			<br>
+			<br>
+			<button id="aaa" class="btn btn-primary">정답 단어 확인</button>
+		</div>
+	</div>
+</body>
+</html>

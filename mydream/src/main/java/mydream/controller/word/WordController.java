@@ -1,14 +1,13 @@
 package mydream.controller.word;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import mydream.service.word.WordService;
@@ -52,6 +51,26 @@ public class WordController {
 		m.addObject("count", count / page.getPageSize());
 		m.addObject("type", page.getType());
 
+		return m;
+	}
+	
+	@RequestMapping("/word/wordtest")
+	public ModelAndView wordtest(ModelAndView m, Model model, Device device, PageVO page) throws Exception {
+		if (device.isMobile()) {
+			System.out.println("모바일입니다");
+			m.setViewName("mydream/mobile/word/wordtest");
+		} else {
+			System.out.println("pc입니다");
+			m.setViewName("mydream/pc/word/wordtest");
+		}
+		double dValue = Math.random();
+		int iValue1 = (int)(dValue * 5);
+		List a =  wordService.selectwordtest(page);
+		
+		m.addObject("wordeng", a.get(iValue1));
+		m.addObject("word", a);
+		
+		
 		return m;
 	}
 }

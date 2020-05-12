@@ -12,4 +12,8 @@
       <select id="selectListIndexWord" resultType="mydream.vo.word.WordVO">
         select * from engword ORDER BY RANDOM() LIMIT 5
     </select>
+    
+     <select id="selectwordtest" resultType="mydream.vo.word.WordVO"  parameterType="mydream.vo.page.PageVO">
+        select * from engword where wordtype=#{type} order by RANDOM() LIMIT 5
+    </select>
 </mapper>

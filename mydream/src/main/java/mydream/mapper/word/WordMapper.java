@@ -16,4 +16,6 @@ public interface WordMapper {
 
 	List selectListIndexWord();
 
+	List selectwordtest(PageVO page);
+
 }

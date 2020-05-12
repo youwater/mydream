@@ -56,7 +56,17 @@
 <!-- 							<li><a href="/basic/basic5">Part7</a></li> -->
 <!-- 						</ul> -->
 <!-- 					</li> -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">단어 테스트<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/word/wordtest?&type=su">수능 단어 테스트</a></li>
+							<li><a href="/word/wordtest?&type=toeic">토익 단어 테스트</a></li>
+							<li><a href="/word/wordtest?&type=tople">토플 단어 테스트</a></li>
+							<li><a href="/word/wordtest?&type=teps">텝스 단어 테스트</a></li>
+						</ul>
+					</li>
 				</ul>
+				
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a th:if="${session.sessionUser == 'aswan'}"  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시물 작성<span class="caret"></span></a>

@@ -25,4 +25,8 @@ public class WordService {
 	public List selectListIndexWord() {
 		return wordMapper.selectListIndexWord();
 	}
+
+	public List selectwordtest(PageVO page) {
+		return wordMapper.selectwordtest(page);
+	}
 }
