@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/indexhtml.css">
+<link rel="stylesheet" type="text/css"	href="/css/jquery.bxslider.min.css">
+<script src="/js/common.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<title>준영어</title>
+</head>
+<style>
+.jumbotron{
+	background-image: url('images/english2.jpg');
+	background-size: cover;
+}
+.div{
+font-size: 30px;
+margin-bottom:10px;
+text-align: center;
+}
+</style>
+<script>
+$(document).ready(function() {
+	
+	$("#su").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/word/wordtest?type=su';
+	});
+	
+	$("#toeic").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/word/wordtest?type=toeic';
+	});
+	$("#tople").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/word/wordtest?type=tople';
+	});
+	
+	$("#teps").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/word/wordtest?type=teps';
+	});
+	
+});
+</script>
+<body>
+	<div th:replace="mydream/include/nav :: navFragment"></div>
+	<div class="container">
+	<div class="jumbotron">
+		<h6>영어 실력을 향상시키고 싶다면</h6>
+		<h6>영어 문장을 매일 읽는 것을 권한다</h6>
+		<h6>무엇을 읽는지는 자유다.</h6>
+	</div>
+	<div id="su" class="div" style="float:left;width:48%;height:48%;background-Color:#F2FFFF">수능<br> 단어</div>
+	<div id="toeic" class="div" style="clear:right;float:right;width:48%;height:48%;background-Color:#FFF2FF">토익<br> 단어</div>
+	<div id="tople" class="div" style="float:left;width:48%;height:48%;background-Color:#FFFFF2">토플 <br>단어</div>
+	<div id="teps" class="div" style="clear:right;float:right;width:48%;height:48%;background-Color:#EFEFEF">탭스<br>단어</div>
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<h2>단어 공부하기</h2>
+			<br>
+			<table class="table">
+			<colgroup>
+				<col width="20%">
+				<col width="30%">
+				<col width="50%">
+			</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">영어단어</th>
+						<th scope="col">해석</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="word,index : ${word}">
+						<th th:text="${index.count}">1</th>
+						<td th:text="${word.englishword}" >Mark</td>
+						<td th:text="${word.koreaword}">Otto</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</body>
+</html>
+
+
+
+
+
+

@@ -15,6 +15,15 @@
 <title>준영어</title>
 </head>
 <style>
+.jumbotron{
+	background-image: url('images/english2.jpg');
+	background-size: cover;
+}
+.div{
+font-size: 30px;
+margin-bottom:10px;
+text-align: center;
+}
 .bx-next {
 	display:none;
 }
@@ -22,56 +31,31 @@
 	display:none;
 }
 </style>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.bxslider').bxSlider({
-			  minSlides: 2,
-			  maxSlides: 4,
-			  slideWidth: 280,
-			  slideMargin: 10,
-			});
-		
-		$(".song").click(function(){
-			var a = $(this).attr("value");
-			submit(a);
+<script>
+$(document).ready(function() {
+	
+	$('.bxslider').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 4,
 		});
+	
+	$("#toeic5").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/engtest/toeic5list';
 	});
-	 function submit(a) {
-		 var songname = a;
-         var form = document.createElement("form");
-         form.setAttribute("charset", "UTF-8");
-         form.setAttribute("method", "GET");  //Post 방식
-         form.setAttribute("action", "/song/read"); //요청 보낼 주소
-         var hiddenField = document.createElement("input");
-         hiddenField.setAttribute("type", "hidden");
-         hiddenField.setAttribute("name", "songname");
-         hiddenField.setAttribute("value", songname);
-         form.appendChild(hiddenField);
-         document.body.appendChild(form);
-         form.submit();
-      }
+	
+	$("#engsaying").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/saying/sayinglist';
+	});
+	
+	$("#engword").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/word/wordmobile';
+	});
+	$("#wordtest").click(function(){
+		window.location.href = 'http://www.0jun.co.kr/word/wordtestmobile';
+	});
+	
+});
 </script>
-
-<style>
-.song{
-	height: 80px;
-	font-size: 12px;
-	text-align: center;
-	border-right: thick double #32a1ce;
-}
-.saying{
-	height: 180px;
-	font-size: 12px;
-	border-right: thick double #32a1ce;
-}
-.col-md-4{
-margin-bottom: 30px;
-}
-.jumbotron{
-	background-image: url('images/english2.jpg');
-	background-size: cover;
-}
-</style>
 <body>
 	<div th:replace="mydream/include/nav :: navFragment"></div>
 	<div class="container">
@@ -80,41 +64,12 @@ margin-bottom: 30px;
 		<h6>영어 문장을 매일 읽는 것을 권한다</h6>
 		<h6>무엇을 읽는지는 자유다.</h6>
 	</div>
-		<h2>팝송으로 공부하기</h2>
-		<br>
-		<ul class="bxslider">
-			<div class="song" th:each="song : ${song}" th:value="${song.songname}" >
-				<div th:text="${song.songname}"></div>
-				<br>
-				<div th:text="${song.songartist}" th:value="${song.songname}"></div>
-			</div>
-		</ul>
-			<h2>단어 공부하기</h2>
-			<br>
-			<table class="table">
-			<colgroup>
-				<col width="20%">
-				<col width="30%">
-				<col width="50%">
-			</colgroup>
-				<thead>
-					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">영어단어</th>
-						<th scope="col">해석</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="word,index : ${word}">
-						<th th:text="${index.count}">1</th>
-						<td th:text="${word.englishword}" >Mark</td>
-						<td th:text="${word.koreaword}">Otto</td>
-					</tr>
-				</tbody>
-			</table>
-				<div>
+	<div id="engword" class="div" style="float:left;width:48%;height:48%;background-Color:#F2FFFF">영어<br> 단어</div>
+	<div id="engsaying" class="div" style="clear:right;float:right;width:48%;height:48%;background-Color:#FFF2FF">영어<br> 명언</div>
+	<div id="toeic5" class="div" style="float:left;width:48%;height:48%;background-Color:#FFFFF2">토익 <br>Part5</div>
+	<div id="wordtest" class="div" style="clear:right;float:right;width:48%;height:48%;background-Color:#EFEFEF">단어<br> 테스트</div>
+	<br><br><br><br><br><br><br><br><br><br><br>
 			<h2>명언으로 영어공부</h2>
-			<br>
 			<ul class="bxslider">
 				<div class="saying" th:each="saying,index : ${saying}">
 					<div th:text="${saying.engcontent}">You must start with small things to achieve the greatthing.</div>

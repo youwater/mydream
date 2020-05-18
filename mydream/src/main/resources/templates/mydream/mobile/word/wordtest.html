@@ -27,11 +27,11 @@ tr :hover{
 	text-align: center;
 }
 .engword{
-	font-size: 40px;
+	font-size: 60px;
 }
 .answer{
+	text-align:left;
 	font-size: 18px;
-	text-align: left;
 }
 .korea{
 text-align: center;
@@ -41,18 +41,24 @@ text-align: center;
 </style>
 <script>
 $(document).ready(function() {
-	$(".btn-primary").click(function(){
+	$("#aaa").click(function(){
 		if($('input:radio[name=check]').is(':checked') == false){
 			alert("버튼을 확인하세요");	
 		}else{
 			   var st = $(":input:radio[name=check]:checked").val();
 			  if(st == $("#korea").val()){
-				  var a = $("#korea2").val();
-				  window.location.href = 'http://www.0jun.co.kr/word/wordtest?type='+a;
+				  alert("정답입니다")
 			  }else{
 				  alert("틀렸습니다 정답은 "+$("#korea").val()+"입니다");
 			  }
 		}
+	});
+	$("#bbb").click(function(){
+		 var a = $("#korea2").val();
+		  window.location.href = 'http://www.0jun.co.kr/word/wordtest?type='+a;
+	});
+	$(".answer").click(function(){
+		$(this).children().prop("checked",true);
 	});
 });
 </script>
@@ -70,10 +76,11 @@ $(document).ready(function() {
 			<input type="hidden" id="korea" class ="korea"  th:value="${wordeng.koreaword}"/>
 			<input type="hidden" id="korea2" class ="korea"  th:value="${wordeng.wordtype}"/>
 			<br>
-			<div class = "answer" th:each="word,index : ${word}"><input type="radio"  name="check"  th:value="${word.koreaword}" th:text="${index.count}+') '+${word.koreaword}">&nbsp&nbsp&nbsp</div>
+			<div  th:each="word,index : ${word}" th:class="answer"><input type="radio" th:class="answer+${index.count}" name="check"  th:value="${word.koreaword}" th:text="${index.count}+') '+${word.koreaword}">&nbsp&nbsp&nbsp</div>
 			<br>
 			<br>
-			<button id="aaa" class="btn btn-primary">정답 단어 확인</button>
+			<button id="aaa" class="btn btn-primary">정답 확인</button>
+			<button id="bbb" class="btn btn-primary">다음 문제</button>
 		</div>
 	</div>
 </body>

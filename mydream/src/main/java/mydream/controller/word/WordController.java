@@ -73,4 +73,18 @@ public class WordController {
 		
 		return m;
 	}
+	
+	@RequestMapping("/word/wordmobile")
+	public ModelAndView wordmobile(ModelAndView m, Model model, Device device, PageVO page) throws Exception {
+			m.setViewName("mydream/mobile/word/wordmobile");
+			m.addObject("word",wordService.selectListIndexWord());
+		return m;
+	}
+	
+	@RequestMapping("/word/wordtestmobile")
+	public ModelAndView wordtestmobile(ModelAndView m, Model model, Device device, PageVO page) throws Exception {
+			m.setViewName("mydream/mobile/word/wordtestmobile");
+			m.addObject("word",wordService.selectListIndexWord());
+		return m;
+	}
 }

@@ -113,7 +113,7 @@ public class AuthController {
 	public String logout(HttpServletRequest request) {
 		log.info("로그아웃 요청");
 		request.getSession().invalidate();
-		return "index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/login")
